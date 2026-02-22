@@ -1,5 +1,5 @@
 import React from 'react';
-import heroSvg from '../assets/hero.svg';
+import titleBannerSvg from '../assets/title-banner.svg';
 import type { GameRecord } from '../types';
 import { loadGameRecord } from '../utils/storage';
 import { initAudio } from '../utils/sound';
@@ -24,14 +24,9 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({ onStart }) => {
     <div className="title-screen">
       <div className="title-bg-effect" />
       <div className="title-content">
-        <div className="title-hero">
-          <img src={heroSvg} alt="湊太郎" className="title-hero-img" />
+        <div className="title-banner">
+          <img src={titleBannerSvg} alt="Battle of Baytaro - 湊太郎の戦い タイピングバトル" className="title-banner-img" />
         </div>
-        <h1 className="title-main">
-          <span className="title-en">Battle of Baytaro</span>
-          <span className="title-jp">湊太郎の戦い</span>
-        </h1>
-        <p className="title-subtitle">タイピングバトル!</p>
 
         <button className="btn-start" onClick={handleStart}>
           START
