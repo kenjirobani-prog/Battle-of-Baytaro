@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Abstract Spinning Top Enemy - Purple/Blue Neon -->
+  <defs>
+    <radialGradient id="e1glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#b44dff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#1a0033" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="e1body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7b2fff"/>
+      <stop offset="50%" stop-color="#4a00e0"/>
+      <stop offset="100%" stop-color="#2600b0"/>
+    </linearGradient>
+    <linearGradient id="e1accent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#7b2fff"/>
+    </linearGradient>
+  </defs>
+  <!-- Glow background -->
+  <circle cx="100" cy="100" r="90" fill="url(#e1glow)"/>
+  <!-- Spinning rings -->
+  <ellipse cx="100" cy="95" rx="55" ry="18" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.5" transform="rotate(-15 100 95)"/>
+  <ellipse cx="100" cy="95" rx="60" ry="20" fill="none" stroke="#7b2fff" stroke-width="1" opacity="0.4" transform="rotate(25 100 95)"/>
+  <ellipse cx="100" cy="95" rx="50" ry="16" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.3" transform="rotate(-45 100 95)"/>
+  <!-- Main top body - angular shape -->
+  <polygon points="100,30 130,70 140,95 120,100 100,170 80,100 60,95 70,70" fill="url(#e1body)" stroke="#b44dff" stroke-width="2"/>
+  <!-- Angular armor plates -->
+  <polygon points="100,30 120,55 100,65 80,55" fill="#5a1dcc" stroke="#00d4ff" stroke-width="1.5"/>
+  <polygon points="60,95 75,80 80,100 70,110" fill="#4a00e0" stroke="#b44dff" stroke-width="1"/>
+  <polygon points="140,95 125,80 120,100 130,110" fill="#4a00e0" stroke="#b44dff" stroke-width="1"/>
+  <!-- Central eye -->
+  <circle cx="100" cy="85" r="12" fill="#1a0033" stroke="#00d4ff" stroke-width="2"/>
+  <circle cx="100" cy="85" r="7" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="100" cy="85" r="4" fill="#ffffff"/>
+  <!-- Neon edge lines -->
+  <line x1="100" y1="30" x2="70" y2="70" stroke="#00d4ff" stroke-width="1.5" opacity="0.8"/>
+  <line x1="100" y1="30" x2="130" y2="70" stroke="#00d4ff" stroke-width="1.5" opacity="0.8"/>
+  <line x1="100" y1="170" x2="80" y2="100" stroke="#b44dff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="100" y1="170" x2="120" y2="100" stroke="#b44dff" stroke-width="1.5" opacity="0.6"/>
+  <!-- Spike accents -->
+  <polygon points="55,90 40,80 58,95" fill="url(#e1accent)" opacity="0.9"/>
+  <polygon points="145,90 160,80 142,95" fill="url(#e1accent)" opacity="0.9"/>
+  <polygon points="95,25 100,10 105,25" fill="#00d4ff" opacity="0.8"/>
+  <!-- Energy particles -->
+  <circle cx="45" cy="70" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="155" cy="70" r="2" fill="#00d4ff" opacity="0.7"/>
+  <circle cx="50" cy="115" r="1.5" fill="#b44dff" opacity="0.6"/>
+  <circle cx="150" cy="115" r="1.5" fill="#b44dff" opacity="0.6"/>
+  <circle cx="100" cy="180" r="2" fill="#7b2fff" opacity="0.5"/>
+  <circle cx="75" cy="40" r="1.5" fill="#00d4ff" opacity="0.5"/>
+  <circle cx="125" cy="40" r="1.5" fill="#00d4ff" opacity="0.5"/>
+</svg>

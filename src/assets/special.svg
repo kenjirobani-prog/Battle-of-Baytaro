@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Special Attack - Large Circular Energy Spiral with Lightning, Blue/Gold -->
+  <defs>
+    <radialGradient id="spglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="25%" stop-color="#4488ff" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#0044cc" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#001144" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="spbolt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffdd44"/>
+      <stop offset="100%" stop-color="#ffaa00"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer glow -->
+  <circle cx="100" cy="100" r="95" fill="url(#spglow)"/>
+  <!-- Energy spiral rings -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#2266dd" stroke-width="1.5" opacity="0.3"/>
+  <circle cx="100" cy="100" r="75" fill="none" stroke="#3388ff" stroke-width="2" opacity="0.4"/>
+  <circle cx="100" cy="100" r="65" fill="none" stroke="#4499ff" stroke-width="2" opacity="0.45"/>
+  <circle cx="100" cy="100" r="55" fill="none" stroke="#55aaff" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="100" cy="100" r="45" fill="none" stroke="#66bbff" stroke-width="2.5" opacity="0.55"/>
+  <circle cx="100" cy="100" r="35" fill="none" stroke="#77ccff" stroke-width="3" opacity="0.6"/>
+  <circle cx="100" cy="100" r="25" fill="none" stroke="#88ddff" stroke-width="3" opacity="0.7"/>
+  <!-- Spiral arms -->
+  <path d="M100,100 Q120,80 140,75 Q160,72 175,60" fill="none" stroke="#ffdd44" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  <path d="M100,100 Q80,120 60,125 Q40,128 25,140" fill="none" stroke="#ffdd44" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  <path d="M100,100 Q115,115 120,135 Q125,155 118,175" fill="none" stroke="#4499ff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <path d="M100,100 Q85,85 80,65 Q75,45 82,25" fill="none" stroke="#4499ff" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <!-- Lightning bolt 1 - top-right -->
+  <path d="M130,30 L120,55 L135,50 L118,80 L132,75 L115,100" fill="none" stroke="url(#spbolt)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M130,30 L120,55 L135,50 L118,80 L132,75 L115,100" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <!-- Lightning bolt 2 - bottom-left -->
+  <path d="M70,170 L80,145 L65,150 L82,120 L68,125 L85,100" fill="none" stroke="url(#spbolt)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M70,170 L80,145 L65,150 L82,120 L68,125 L85,100" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <!-- Lightning bolt 3 - top-left -->
+  <path d="M35,45 L55,60 L45,68 L72,85 L60,88 L85,100" fill="none" stroke="#ffcc33" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <path d="M35,45 L55,60 L45,68 L72,85 L60,88 L85,100" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <!-- Lightning bolt 4 - bottom-right -->
+  <path d="M165,155 L145,140 L155,132 L128,115 L140,112 L115,100" fill="none" stroke="#ffcc33" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  <path d="M165,155 L145,140 L155,132 L128,115 L140,112 L115,100" fill="none" stroke="#ffffff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+  <!-- Central energy orb -->
+  <circle cx="100" cy="100" r="15" fill="#2255cc" stroke="#88ccff" stroke-width="2" opacity="0.9"/>
+  <circle cx="100" cy="100" r="10" fill="#4488ff" opacity="0.8"/>
+  <circle cx="100" cy="100" r="6" fill="#aaddff" opacity="0.9"/>
+  <circle cx="100" cy="100" r="3" fill="#ffffff"/>
+  <!-- Gold accents on orb -->
+  <circle cx="100" cy="100" r="18" fill="none" stroke="#ffdd44" stroke-width="1.5" opacity="0.6" stroke-dasharray="4 6"/>
+  <!-- Spark points at lightning tips -->
+  <circle cx="130" cy="30" r="3" fill="#ffee66" opacity="0.9"/>
+  <circle cx="70" cy="170" r="3" fill="#ffee66" opacity="0.9"/>
+  <circle cx="35" cy="45" r="2.5" fill="#ffdd44" opacity="0.8"/>
+  <circle cx="165" cy="155" r="2.5" fill="#ffdd44" opacity="0.8"/>
+  <!-- Spiral end glows -->
+  <circle cx="175" cy="60" r="3" fill="#ffdd44" opacity="0.7"/>
+  <circle cx="25" cy="140" r="3" fill="#ffdd44" opacity="0.7"/>
+  <circle cx="118" cy="175" r="2.5" fill="#4499ff" opacity="0.6"/>
+  <circle cx="82" cy="25" r="2.5" fill="#4499ff" opacity="0.6"/>
+  <!-- Floating energy particles -->
+  <circle cx="150" cy="40" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="50" cy="160" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="170" cy="100" r="1.5" fill="#88ccff" opacity="0.5"/>
+  <circle cx="30" cy="100" r="1.5" fill="#88ccff" opacity="0.5"/>
+  <circle cx="100" cy="15" r="1.5" fill="#ffdd44" opacity="0.5"/>
+  <circle cx="100" cy="185" r="1.5" fill="#ffdd44" opacity="0.5"/>
+  <circle cx="155" cy="145" r="1" fill="#ffee88" opacity="0.4"/>
+  <circle cx="45" cy="55" r="1" fill="#ffee88" opacity="0.4"/>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Defeat Effect - Explosion/Shatter, Fragments Flying Outward -->
+  <defs>
+    <radialGradient id="defglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#ff6644" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#ff2200" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#660000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="defrag1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffaa44"/>
+      <stop offset="100%" stop-color="#ff4400"/>
+    </linearGradient>
+    <linearGradient id="defrag2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8833"/>
+      <stop offset="100%" stop-color="#cc2200"/>
+    </linearGradient>
+  </defs>
+  <!-- Explosion glow -->
+  <circle cx="100" cy="100" r="90" fill="url(#defglow)"/>
+  <!-- Shockwave rings -->
+  <circle cx="100" cy="100" r="70" fill="none" stroke="#ff6644" stroke-width="2" opacity="0.4"/>
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#ff8844" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="100" cy="100" r="30" fill="none" stroke="#ffaa66" stroke-width="3" opacity="0.6"/>
+  <!-- Central explosion core -->
+  <circle cx="100" cy="100" r="18" fill="#ffffff" opacity="0.8"/>
+  <circle cx="100" cy="100" r="12" fill="#ffee88"/>
+  <circle cx="100" cy="100" r="6" fill="#ffffff"/>
+  <!-- Flying fragments - top-left -->
+  <polygon points="35,30 45,25 48,38 38,40" fill="url(#defrag1)" stroke="#ffcc44" stroke-width="1" transform="rotate(-15 40 33)"/>
+  <polygon points="55,20 62,18 60,28 52,26" fill="url(#defrag2)" stroke="#ff8844" stroke-width="1"/>
+  <polygon points="25,55 32,48 38,58 28,62" fill="#ff6633" stroke="#ffaa44" stroke-width="1"/>
+  <!-- Flying fragments - top-right -->
+  <polygon points="155,25 165,22 168,35 158,37" fill="url(#defrag1)" stroke="#ffcc44" stroke-width="1" transform="rotate(10 162 30)"/>
+  <polygon points="140,18 148,15 150,27 142,28" fill="url(#defrag2)" stroke="#ff8844" stroke-width="1"/>
+  <polygon points="170,50 178,45 180,58 172,60" fill="#ff6633" stroke="#ffaa44" stroke-width="1"/>
+  <!-- Flying fragments - bottom-left -->
+  <polygon points="30,150 40,148 42,160 32,162" fill="url(#defrag1)" stroke="#ffcc44" stroke-width="1" transform="rotate(20 36 155)"/>
+  <polygon points="45,170 55,168 52,178 42,176" fill="url(#defrag2)" stroke="#ff8844" stroke-width="1"/>
+  <polygon points="22,130 30,125 35,138 25,140" fill="#ff6633" stroke="#ffaa44" stroke-width="1"/>
+  <!-- Flying fragments - bottom-right -->
+  <polygon points="160,155 170,152 172,165 162,167" fill="url(#defrag1)" stroke="#ffcc44" stroke-width="1" transform="rotate(-10 166 160)"/>
+  <polygon points="148,172 158,170 155,182 145,180" fill="url(#defrag2)" stroke="#ff8844" stroke-width="1"/>
+  <polygon points="172,135 180,130 182,142 174,145" fill="#ff6633" stroke="#ffaa44" stroke-width="1"/>
+  <!-- Side fragments -->
+  <polygon points="12,95 18,88 22,100 15,105" fill="#cc4422" stroke="#ff8844" stroke-width="1"/>
+  <polygon points="182,90 190,85 192,98 185,102" fill="#cc4422" stroke="#ff8844" stroke-width="1"/>
+  <polygon points="95,12 102,8 105,18 98,22" fill="#dd5533" stroke="#ffaa44" stroke-width="1"/>
+  <polygon points="92,182 100,178 104,190 96,192" fill="#dd5533" stroke="#ffaa44" stroke-width="1"/>
+  <!-- Small debris -->
+  <rect x="60" y="35" width="5" height="4" fill="#ff8844" transform="rotate(35 62 37)" opacity="0.8"/>
+  <rect x="135" y="38" width="4" height="5" fill="#ff8844" transform="rotate(-25 137 40)" opacity="0.8"/>
+  <rect x="48" y="140" width="5" height="3" fill="#ff6633" transform="rotate(45 50 141)" opacity="0.7"/>
+  <rect x="150" y="145" width="4" height="5" fill="#ff6633" transform="rotate(-40 152 147)" opacity="0.7"/>
+  <!-- Smoke wisps -->
+  <circle cx="65" cy="65" r="8" fill="#666666" opacity="0.25"/>
+  <circle cx="135" cy="65" r="7" fill="#555555" opacity="0.2"/>
+  <circle cx="60" cy="130" r="9" fill="#666666" opacity="0.2"/>
+  <circle cx="140" cy="135" r="7" fill="#555555" opacity="0.2"/>
+  <!-- Spark particles -->
+  <circle cx="40" cy="42" r="2" fill="#ffdd44" opacity="0.8"/>
+  <circle cx="160" cy="38" r="2" fill="#ffdd44" opacity="0.8"/>
+  <circle cx="38" cy="158" r="2" fill="#ffcc33" opacity="0.7"/>
+  <circle cx="162" cy="162" r="2" fill="#ffcc33" opacity="0.7"/>
+  <circle cx="18" cy="100" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="182" cy="100" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="100" cy="18" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="100" cy="182" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <!-- Flying streak lines -->
+  <line x1="80" y1="85" x2="40" y2="35" stroke="#ffaa44" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="120" y1="85" x2="160" y2="35" stroke="#ffaa44" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="80" y1="115" x2="35" y2="165" stroke="#ffaa44" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="120" y1="115" x2="165" y2="165" stroke="#ffaa44" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+</svg>
