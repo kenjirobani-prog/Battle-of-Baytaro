@@ -1,7 +1,7 @@
 import React from 'react';
 import type { PlayerState } from '../types';
 import { loadGameRecord } from '../utils/storage';
-import heroSvg from '../assets/hero.svg';
+import heroPng from '../assets/hero.png';
 
 interface ResultScreenProps {
   player: PlayerState;
@@ -24,7 +24,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         <h2 className="result-title">RESULT</h2>
 
         <div className="result-hero">
-          <img src={heroSvg} alt="湊太郎" className="result-hero-img" />
+          <img src={heroPng} alt="湊太郎" className="result-hero-img" />
         </div>
 
         <div className="result-stats">

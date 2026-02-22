@@ -7,7 +7,7 @@ import { EnemyCard } from './EnemyCard';
 import { InputArea } from './InputArea';
 import { SpecialGauge } from './SpecialGauge';
 import { EffectOverlay } from './EffectOverlay';
-import heroSvg from '../assets/hero.svg';
+import heroPng from '../assets/hero.png';
 
 interface BattleScreenProps {
   engine: GameEngine;
@@ -68,7 +68,7 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
           {/* Player side */}
           <div className="player-side">
             <div className="player-portrait">
-              <img src={heroSvg} alt="湊太郎" className="player-img" />
+              <img src={heroPng} alt="湊太郎" className="player-img" />
             </div>
             <HPBar
               current={player.hp}
