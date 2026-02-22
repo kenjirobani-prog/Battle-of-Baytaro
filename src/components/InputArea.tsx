@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import type { WordEntry, GameMode } from '../types';
-import { getPrimaryRomaji } from '../utils/romajiConverter';
 
 interface InputAreaProps {
   word: WordEntry | null;
@@ -54,8 +53,6 @@ export const InputArea: React.FC<InputAreaProps> = ({
 
   if (!word) return null;
 
-  const hintRomaji = mode === 'hiragana' ? getPrimaryRomaji(word.display) : null;
-
   return (
     <div className="input-area">
       <div className="word-display">
@@ -64,19 +61,16 @@ export const InputArea: React.FC<InputAreaProps> = ({
           <span className="word-meaning">{word.meaning}</span>
         )}
       </div>
-      {hintRomaji && (
-        <div className="romaji-hint">{hintRomaji}</div>
-      )}
       <div className={`input-wrapper ${shake ? 'input-shake' : ''}`}>
         <input
           ref={inputRef}
           type="text"
-          className="typing-input"
+          className={`typing-input ${mode === 'hiragana' ? 'typing-input-jp' : ''}`}
           value={input}
           onChange={e => onInputChange(e.target.value)}
           onKeyDown={handleKeyDown}
           disabled={disabled}
-          placeholder={mode === 'hiragana' ? 'ローマ字を入力...' : 'Type the word...'}
+          placeholder={mode === 'hiragana' ? 'ひらがなを入力...' : 'Type the word...'}
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"

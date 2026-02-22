@@ -205,3 +205,155 @@ export function playLevelUpSE(): void {
 export function initAudio(): void {
   getCtx();
 }
+
+// ── BGM System ──
+let bgmNodes: { oscillators: OscillatorNode[]; gains: GainNode[]; masterGain: GainNode } | null = null;
+let bgmInterval: number | null = null;
+
+/**
+ * Cyberpunk action BGM - procedurally generated looping music.
+ * Uses multiple oscillators for a driving, electronic feel.
+ */
+export function startBGM(): void {
+  if (bgmNodes) return; // already playing
+  const ctx = getCtx();
+
+  const masterGain = ctx.createGain();
+  masterGain.gain.value = 0.12;
+  masterGain.connect(ctx.destination);
+
+  const oscillators: OscillatorNode[] = [];
+  const gains: GainNode[] = [];
+
+  // Bass line (driving pulse)
+  const bassOsc = ctx.createOscillator();
+  const bassGain = ctx.createGain();
+  bassOsc.type = 'sawtooth';
+  bassOsc.frequency.value = 55; // A1
+  bassGain.gain.value = 0.5;
+  bassOsc.connect(bassGain);
+  bassGain.connect(masterGain);
+  bassOsc.start();
+  oscillators.push(bassOsc);
+  gains.push(bassGain);
+
+  // Sub bass (sine for weight)
+  const subOsc = ctx.createOscillator();
+  const subGain = ctx.createGain();
+  subOsc.type = 'sine';
+  subOsc.frequency.value = 55;
+  subGain.gain.value = 0.4;
+  subOsc.connect(subGain);
+  subGain.connect(masterGain);
+  subOsc.start();
+  oscillators.push(subOsc);
+  gains.push(subGain);
+
+  // Pad (atmospheric)
+  const padOsc = ctx.createOscillator();
+  const padGain = ctx.createGain();
+  padOsc.type = 'triangle';
+  padOsc.frequency.value = 220; // A3
+  padGain.gain.value = 0.15;
+  padOsc.connect(padGain);
+  padGain.connect(masterGain);
+  padOsc.start();
+  oscillators.push(padOsc);
+  gains.push(padGain);
+
+  // Lead synth (melody carrier)
+  const leadOsc = ctx.createOscillator();
+  const leadGain = ctx.createGain();
+  leadOsc.type = 'square';
+  leadOsc.frequency.value = 440;
+  leadGain.gain.value = 0.08;
+  leadOsc.connect(leadGain);
+  leadGain.connect(masterGain);
+  leadOsc.start();
+  oscillators.push(leadOsc);
+  gains.push(leadGain);
+
+  // Arpeggio synth
+  const arpOsc = ctx.createOscillator();
+  const arpGain = ctx.createGain();
+  arpOsc.type = 'sawtooth';
+  arpOsc.frequency.value = 330;
+  arpGain.gain.value = 0.06;
+  arpOsc.connect(arpGain);
+  arpGain.connect(masterGain);
+  arpOsc.start();
+  oscillators.push(arpOsc);
+  gains.push(arpGain);
+
+  bgmNodes = { oscillators, gains, masterGain };
+
+  // Sequence patterns - cyberpunk action feel
+  // A minor progression: Am - F - C - G (i - VI - III - VII)
+  const bassNotes = [55, 55, 44, 44, 52, 52, 49, 49]; // A1, F1, C2-ish, G1
+  const padNotes = [220, 220, 175, 175, 262, 262, 196, 196]; // A3, F3, C4, G3
+  const leadMelody = [
+    440, 523, 659, 523, 440, 392, 349, 392,
+    349, 440, 523, 440, 523, 659, 784, 659,
+  ];
+  const arpNotes = [
+    220, 330, 440, 330, 175, 262, 349, 262,
+    262, 392, 523, 392, 196, 294, 392, 294,
+  ];
+
+  let step = 0;
+  const bpm = 140;
+  const stepTime = (60 / bpm) * 1000 / 2; // 16th notes
+
+  bgmInterval = window.setInterval(() => {
+    if (!bgmNodes) return;
+    const ctx2 = getCtx();
+    const t = ctx2.currentTime;
+
+    // Bass (changes every 4 steps)
+    const bassIdx = Math.floor(step / 4) % bassNotes.length;
+    bassOsc.frequency.setValueAtTime(bassNotes[bassIdx], t);
+    subOsc.frequency.setValueAtTime(bassNotes[bassIdx], t);
+
+    // Bass pulse effect (volume pumping)
+    if (step % 4 === 0) {
+      bassGain.gain.setValueAtTime(0.5, t);
+      bassGain.gain.linearRampToValueAtTime(0.25, t + stepTime / 1000 * 3);
+    }
+
+    // Pad (changes every 8 steps)
+    const padIdx = Math.floor(step / 8) % padNotes.length;
+    padOsc.frequency.setValueAtTime(padNotes[padIdx], t);
+
+    // Lead melody (every 2 steps)
+    if (step % 2 === 0) {
+      const leadIdx = Math.floor(step / 2) % leadMelody.length;
+      leadOsc.frequency.setValueAtTime(leadMelody[leadIdx], t);
+      leadGain.gain.setValueAtTime(0.1, t);
+      leadGain.gain.linearRampToValueAtTime(0.04, t + stepTime / 1000);
+    }
+
+    // Arpeggio (every step)
+    const arpIdx = step % arpNotes.length;
+    arpOsc.frequency.setValueAtTime(arpNotes[arpIdx], t);
+    arpGain.gain.setValueAtTime(0.08, t);
+    arpGain.gain.linearRampToValueAtTime(0.02, t + stepTime / 1000 * 0.8);
+
+    step++;
+  }, stepTime);
+}
+
+export function stopBGM(): void {
+  if (bgmNodes) {
+    bgmNodes.masterGain.gain.linearRampToValueAtTime(0.001, getCtx().currentTime + 0.5);
+    const nodes = bgmNodes;
+    setTimeout(() => {
+      nodes.oscillators.forEach(o => { try { o.stop(); } catch {} });
+      nodes.masterGain.disconnect();
+    }, 600);
+    bgmNodes = null;
+  }
+  if (bgmInterval) {
+    clearInterval(bgmInterval);
+    bgmInterval = null;
+  }
+}

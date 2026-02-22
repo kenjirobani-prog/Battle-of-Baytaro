@@ -107,8 +107,8 @@ html, body {
 }
 
 .title-hero-img {
-  width: 160px;
-  height: 160px;
+  width: 240px;
+  height: 240px;
   filter: drop-shadow(0 0 20px var(--c-neon-green));
   animation: float 3s ease-in-out infinite;
 }
@@ -127,7 +127,7 @@ html, body {
 
 .title-en {
   font-family: var(--font-en);
-  font-size: 2.4rem;
+  font-size: 3.2rem;
   font-weight: 900;
   background: linear-gradient(135deg, var(--c-neon-blue), var(--c-neon-pink));
   -webkit-background-clip: text;
@@ -139,7 +139,7 @@ html, body {
 
 .title-jp {
   font-family: var(--font-jp);
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--c-neon-yellow);
   text-shadow: 0 0 8px var(--c-neon-yellow);
@@ -234,8 +234,8 @@ html, body {
 }
 
 .mode-card {
-  width: 200px;
-  padding: 32px 24px;
+  width: 260px;
+  padding: 40px 32px;
   border: 2px solid var(--c-card-border);
   background: var(--c-card-bg);
   cursor: pointer;
@@ -260,7 +260,7 @@ html, body {
 }
 
 .mode-card-icon {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 900;
   margin-bottom: 12px;
   color: var(--c-neon-yellow);
@@ -268,7 +268,7 @@ html, body {
 }
 
 .mode-card-label {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--c-text);
   margin-bottom: 8px;
@@ -384,6 +384,39 @@ html, body {
   padding: 12px 24px;
 }
 
+/* ── Battle top bar ── */
+.battle-top-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.battle-top-bar .hud {
+  flex: 1;
+}
+
+.btn-return-title {
+  font-family: var(--font-jp);
+  font-size: 0.75rem;
+  padding: 6px 14px;
+  border: 1px solid var(--c-text-dim);
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--c-text-dim);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.btn-return-title:hover {
+  border-color: var(--c-neon-pink);
+  color: var(--c-neon-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
 /* ── HUD ── */
 .hud {
   flex-shrink: 0;
@@ -398,7 +431,7 @@ html, body {
 
 .hud-stage {
   font-family: var(--font-en);
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--c-neon-blue);
   letter-spacing: 2px;
   text-shadow: 0 0 6px var(--c-neon-blue);
@@ -411,7 +444,7 @@ html, body {
 
 .hud-stat {
   font-family: var(--font-en);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--c-text-dim);
   letter-spacing: 1px;
 }
@@ -433,18 +466,20 @@ html, body {
 
 .hud-timer-bar {
   width: 100%;
-  height: 6px;
+  height: 14px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  border-radius: 7px;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .hud-timer-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--c-neon-green), var(--c-neon-blue));
-  border-radius: 3px;
+  border-radius: 7px;
   transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
 }
 
 .timer-urgent .hud-timer-fill {
@@ -481,8 +516,8 @@ html, body {
 }
 
 .player-portrait {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border: 2px solid var(--c-neon-green);
   border-radius: 8px;
   overflow: hidden;
@@ -503,7 +538,7 @@ html, body {
 
 .vs-text {
   font-family: var(--font-en);
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 900;
   color: var(--c-neon-yellow);
   text-shadow: 0 0 20px var(--c-neon-yellow);
@@ -529,8 +564,8 @@ html, body {
 }
 
 .enemy-portrait {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 180px;
   border: 2px solid var(--c-neon-red);
   border-radius: 8px;
   overflow: hidden;
@@ -689,7 +724,7 @@ html, body {
 }
 
 .word-text {
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 900;
   color: #fff;
   text-shadow:
@@ -746,6 +781,10 @@ html, body {
   text-align: center;
   letter-spacing: 3px;
   caret-color: var(--c-neon-blue);
+}
+
+.typing-input-jp {
+  font-family: var(--font-jp);
 }
 
 .typing-input:focus {
@@ -952,8 +991,8 @@ html, body {
 }
 
 .result-hero-img {
-  width: 100px;
-  height: 100px;
+  width: 160px;
+  height: 160px;
   filter: drop-shadow(0 0 15px var(--c-neon-green));
 }
 

@@ -18,7 +18,7 @@ export const ModeSelect: React.FC<ModeSelectProps> = ({ onSelect, onBack }) => {
           >
             <div className="mode-card-icon">あ</div>
             <div className="mode-card-label">ひらがな</div>
-            <div className="mode-card-desc">ローマ字でタイピング</div>
+            <div className="mode-card-desc">ひらがなでタイピング</div>
           </button>
           <button
             className="mode-card mode-card-english"
