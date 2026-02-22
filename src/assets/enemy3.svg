@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Abstract Dragon Enemy - Green/Cyan Neon, Curved Flowing -->
+  <defs>
+    <radialGradient id="e3glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff88" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#002211" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="e3body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffaa"/>
+      <stop offset="50%" stop-color="#00aa66"/>
+      <stop offset="100%" stop-color="#005533"/>
+    </linearGradient>
+    <linearGradient id="e3wing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ddcc" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#008866" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+  <!-- Glow -->
+  <circle cx="100" cy="100" r="90" fill="url(#e3glow)"/>
+  <!-- Serpentine body - flowing curves -->
+  <path d="M50,150 Q40,120 55,100 Q70,80 85,75 Q100,70 110,65 Q125,58 130,50" fill="none" stroke="url(#e3body)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M50,150 Q40,120 55,100 Q70,80 85,75 Q100,70 110,65 Q125,58 130,50" fill="none" stroke="#00ffcc" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+  <!-- Body continuation / tail -->
+  <path d="M50,150 Q55,165 70,172 Q90,180 105,170 Q115,162 110,150" fill="none" stroke="url(#e3body)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M110,150 Q108,140 115,135" fill="none" stroke="#00aa66" stroke-width="6" stroke-linecap="round"/>
+  <!-- Tail tip -->
+  <polygon points="115,135 125,125 120,140 130,130" fill="#00ffaa" stroke="#00ffcc" stroke-width="1"/>
+  <!-- Head -->
+  <ellipse cx="130" cy="48" rx="18" ry="14" fill="#00aa66" stroke="#00ffaa" stroke-width="2"/>
+  <!-- Snout -->
+  <path d="M145,44 Q158,40 160,45 Q158,50 145,52" fill="#008855" stroke="#00ffcc" stroke-width="1.5"/>
+  <!-- Horns -->
+  <path d="M125,36 Q118,22 122,15" fill="none" stroke="#00ffdd" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M135,36 Q140,24 145,18" fill="none" stroke="#00ffdd" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Horn tips -->
+  <circle cx="122" cy="15" r="2" fill="#00ffff"/>
+  <circle cx="145" cy="18" r="2" fill="#00ffff"/>
+  <!-- Eyes -->
+  <ellipse cx="135" cy="44" rx="4" ry="5" fill="#003322"/>
+  <ellipse cx="135" cy="44" rx="2.5" ry="3.5" fill="#00ffaa"/>
+  <circle cx="136" cy="43" r="1.5" fill="#ffffff"/>
+  <!-- Nostril -->
+  <circle cx="155" cy="43" r="1.5" fill="#004433"/>
+  <circle cx="155" cy="48" r="1.5" fill="#004433"/>
+  <!-- Left wing -->
+  <path d="M80,78 Q50,40 20,30 Q35,55 30,70 Q45,55 55,72 Q50,60 65,78" fill="url(#e3wing)" stroke="#00ffaa" stroke-width="1.5"/>
+  <!-- Right wing -->
+  <path d="M105,68 Q120,30 150,20 Q135,45 140,60 Q128,48 120,65 Q125,52 112,70" fill="url(#e3wing)" stroke="#00ffaa" stroke-width="1.5"/>
+  <!-- Wing membrane lines -->
+  <line x1="80" y1="78" x2="30" y2="45" stroke="#00ffcc" stroke-width="0.8" opacity="0.4"/>
+  <line x1="80" y1="78" x2="45" y2="55" stroke="#00ffcc" stroke-width="0.8" opacity="0.4"/>
+  <line x1="105" y1="68" x2="140" y2="35" stroke="#00ffcc" stroke-width="0.8" opacity="0.4"/>
+  <line x1="105" y1="68" x2="128" y2="45" stroke="#00ffcc" stroke-width="0.8" opacity="0.4"/>
+  <!-- Scales pattern along body -->
+  <circle cx="60" cy="108" r="3" fill="none" stroke="#00ffaa" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="72" cy="88" r="3" fill="none" stroke="#00ffaa" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="90" cy="77" r="2.5" fill="none" stroke="#00ffaa" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="60" cy="160" r="2.5" fill="none" stroke="#00ffaa" stroke-width="0.8" opacity="0.5"/>
+  <circle cx="80" cy="173" r="2.5" fill="none" stroke="#00ffaa" stroke-width="0.8" opacity="0.5"/>
+  <!-- Breath / energy wisps from mouth -->
+  <path d="M160,44 Q170,38 175,42" fill="none" stroke="#00ffff" stroke-width="1.5" opacity="0.6"/>
+  <path d="M160,46 Q172,44 178,48" fill="none" stroke="#00ffaa" stroke-width="1" opacity="0.5"/>
+  <circle cx="178" cy="42" r="2" fill="#00ffff" opacity="0.5"/>
+  <circle cx="182" cy="48" r="1.5" fill="#00ffaa" opacity="0.4"/>
+  <!-- Floating particles -->
+  <circle cx="25" cy="90" r="1.5" fill="#00ffcc" opacity="0.6"/>
+  <circle cx="170" cy="80" r="1.5" fill="#00ffcc" opacity="0.6"/>
+  <circle cx="90" cy="190" r="1.5" fill="#00ffaa" opacity="0.5"/>
+  <circle cx="15" cy="60" r="1" fill="#00ffff" opacity="0.4"/>
+  <circle cx="175" cy="120" r="1" fill="#00ffff" opacity="0.4"/>
+</svg>

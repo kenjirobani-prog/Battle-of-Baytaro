@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Hero - Minataro (湊太郎): Cute chibi boy with cap, green windbreaker, raccoon plushie -->
+  <defs>
+    <linearGradient id="hjacket" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#44cc55"/>
+      <stop offset="100%" stop-color="#228833"/>
+    </linearGradient>
+    <linearGradient id="hpants" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3366cc"/>
+      <stop offset="100%" stop-color="#224488"/>
+    </linearGradient>
+    <linearGradient id="hcap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#996633"/>
+      <stop offset="100%" stop-color="#664422"/>
+    </linearGradient>
+    <linearGradient id="hskin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffddbb"/>
+      <stop offset="100%" stop-color="#ffcc99"/>
+    </linearGradient>
+    <linearGradient id="hplush" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#999999"/>
+      <stop offset="100%" stop-color="#666666"/>
+    </linearGradient>
+  </defs>
+  <!-- === BODY === -->
+  <!-- Shadow under feet -->
+  <ellipse cx="95" cy="192" rx="35" ry="6" fill="#000000" opacity="0.15"/>
+
+  <!-- Legs -->
+  <rect x="78" y="150" width="14" height="30" rx="4" fill="url(#hpants)" stroke="#1a3366" stroke-width="1.5"/>
+  <rect x="98" y="150" width="14" height="30" rx="4" fill="url(#hpants)" stroke="#1a3366" stroke-width="1.5"/>
+  <!-- Shoes -->
+  <ellipse cx="85" cy="182" rx="10" ry="6" fill="#cc3333" stroke="#881111" stroke-width="1.5"/>
+  <ellipse cx="105" cy="182" rx="10" ry="6" fill="#cc3333" stroke="#881111" stroke-width="1.5"/>
+  <!-- Shoe highlights -->
+  <ellipse cx="83" cy="180" rx="4" ry="2" fill="#ee5555" opacity="0.6"/>
+  <ellipse cx="103" cy="180" rx="4" ry="2" fill="#ee5555" opacity="0.6"/>
+
+  <!-- Windbreaker jacket body -->
+  <path d="M68,100 Q65,95 68,88 L72,82 Q85,75 105,75 Q118,75 122,82 L126,88 Q129,95 126,100 L128,150 Q110,158 95,158 Q80,158 66,150 Z" fill="url(#hjacket)" stroke="#1a6622" stroke-width="1.5"/>
+  <!-- Jacket zipper line -->
+  <line x1="95" y1="82" x2="95" y2="155" stroke="#1a6622" stroke-width="1.5"/>
+  <!-- Jacket collar -->
+  <path d="M78,82 Q88,78 95,80 Q102,78 112,82" fill="none" stroke="#1a6622" stroke-width="2"/>
+  <!-- Jacket pocket -->
+  <rect x="74" y="115" width="16" height="10" rx="2" fill="none" stroke="#1a6622" stroke-width="1" opacity="0.6"/>
+  <rect x="102" y="115" width="16" height="10" rx="2" fill="none" stroke="#1a6622" stroke-width="1" opacity="0.6"/>
+  <!-- Jacket highlight -->
+  <path d="M72,90 Q75,88 80,90" fill="none" stroke="#66dd77" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Left arm (waving) -->
+  <path d="M68,90 Q55,95 48,108 Q42,118 45,125" fill="none" stroke="url(#hjacket)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M68,90 Q55,95 48,108 Q42,118 45,125" fill="none" stroke="#1a6622" stroke-width="1.5"/>
+  <!-- Left hand -->
+  <circle cx="45" cy="128" r="7" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
+
+  <!-- Right arm (holding raccoon plushie) -->
+  <path d="M126,90 Q138,100 140,115 Q142,128 138,135" fill="none" stroke="url(#hjacket)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M126,90 Q138,100 140,115 Q142,128 138,135" fill="none" stroke="#1a6622" stroke-width="1.5"/>
+  <!-- Right hand -->
+  <circle cx="138" cy="138" r="7" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
+
+  <!-- === RACCOON PLUSHIE (held in right hand) === -->
+  <!-- Plushie body -->
+  <ellipse cx="148" cy="148" rx="14" ry="16" fill="url(#hplush)" stroke="#444444" stroke-width="1.5"/>
+  <!-- Plushie head -->
+  <circle cx="148" cy="130" r="10" fill="#888888" stroke="#444444" stroke-width="1.5"/>
+  <!-- Plushie ears -->
+  <circle cx="140" cy="122" r="4" fill="#777777" stroke="#444444" stroke-width="1"/>
+  <circle cx="156" cy="122" r="4" fill="#777777" stroke="#444444" stroke-width="1"/>
+  <!-- Plushie face mask (raccoon marking) -->
+  <ellipse cx="148" cy="130" rx="8" ry="5" fill="#555555"/>
+  <!-- Plushie eyes -->
+  <circle cx="144" cy="129" r="2" fill="#111111"/>
+  <circle cx="152" cy="129" r="2" fill="#111111"/>
+  <circle cx="145" cy="128" r="0.8" fill="#ffffff"/>
+  <circle cx="153" cy="128" r="0.8" fill="#ffffff"/>
+  <!-- Plushie nose -->
+  <circle cx="148" cy="133" r="1.5" fill="#222222"/>
+  <!-- Plushie tail (striped) -->
+  <path d="M160,155 Q168,150 172,145" fill="none" stroke="#888888" stroke-width="5" stroke-linecap="round"/>
+  <path d="M163,153 Q165,151 167,149" fill="none" stroke="#555555" stroke-width="5" stroke-linecap="butt"/>
+  <!-- Plushie little arms -->
+  <path d="M136,142 L130,145" stroke="#888888" stroke-width="4" stroke-linecap="round"/>
+  <path d="M160,142 L165,146" stroke="#888888" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- === HEAD === -->
+  <!-- Head / face -->
+  <circle cx="95" cy="55" r="28" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
+  <!-- Hair (dark brown, short, peeking under cap) -->
+  <path d="M68,52 Q70,40 80,35 Q75,50 78,55" fill="#3a2211" stroke="none"/>
+  <path d="M122,52 Q120,40 110,35 Q115,50 112,55" fill="#3a2211" stroke="none"/>
+  <!-- Sideburns -->
+  <path d="M68,55 Q66,62 68,68" fill="#3a2211" stroke="none"/>
+  <path d="M122,55 Q124,62 122,68" fill="#3a2211" stroke="none"/>
+  <!-- Fringe under cap -->
+  <path d="M75,44 Q80,40 85,43 Q90,38 95,42 Q100,38 105,43 Q110,40 115,44" fill="#3a2211" stroke="none"/>
+
+  <!-- Cap -->
+  <path d="M67,48 Q68,30 95,25 Q122,30 123,48 Z" fill="url(#hcap)" stroke="#553311" stroke-width="1.5"/>
+  <!-- Cap brim -->
+  <path d="M65,48 Q70,55 95,56 Q120,55 125,48 Q120,52 95,53 Q70,52 65,48Z" fill="#885522" stroke="#553311" stroke-width="1"/>
+  <!-- Cap button on top -->
+  <circle cx="95" cy="26" r="3" fill="#885522" stroke="#553311" stroke-width="1"/>
+  <!-- Cap highlight -->
+  <path d="M78,35 Q85,32 92,34" fill="none" stroke="#bb8844" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Eyes (big anime-chibi style) -->
+  <ellipse cx="84" cy="58" rx="6" ry="7" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <ellipse cx="106" cy="58" rx="6" ry="7" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <!-- Irises -->
+  <ellipse cx="85" cy="59" rx="4" ry="5" fill="#2255aa"/>
+  <ellipse cx="107" cy="59" rx="4" ry="5" fill="#2255aa"/>
+  <!-- Pupils -->
+  <circle cx="86" cy="58" r="2" fill="#111133"/>
+  <circle cx="108" cy="58" r="2" fill="#111133"/>
+  <!-- Eye shine -->
+  <circle cx="87" cy="56" r="1.8" fill="#ffffff"/>
+  <circle cx="109" cy="56" r="1.8" fill="#ffffff"/>
+  <circle cx="84" cy="61" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="106" cy="61" r="1" fill="#ffffff" opacity="0.7"/>
+
+  <!-- Eyebrows -->
+  <path d="M78,50 Q84,47 90,50" fill="none" stroke="#3a2211" stroke-width="2" stroke-linecap="round"/>
+  <path d="M100,50 Q106,47 112,50" fill="none" stroke="#3a2211" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Big smile -->
+  <path d="M82,68 Q88,78 95,78 Q102,78 108,68" fill="#ffffff" stroke="#333333" stroke-width="1.5"/>
+  <!-- Inner mouth -->
+  <path d="M84,69 Q90,77 95,77 Q100,77 106,69" fill="#ff6666"/>
+  <!-- Tongue hint -->
+  <ellipse cx="95" cy="75" rx="4" ry="3" fill="#ff8888"/>
+
+  <!-- Blush marks -->
+  <ellipse cx="76" cy="65" rx="5" ry="3" fill="#ffaaaa" opacity="0.5"/>
+  <ellipse cx="114" cy="65" rx="5" ry="3" fill="#ffaaaa" opacity="0.5"/>
+
+  <!-- Nose (simple dot) -->
+  <circle cx="95" cy="63" r="1.5" fill="#dd9977"/>
+
+  <!-- Ears -->
+  <ellipse cx="67" cy="58" rx="4" ry="6" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
+  <ellipse cx="123" cy="58" rx="4" ry="6" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
+
+  <!-- === ENERGY SPARKLES (hero aura) === -->
+  <circle cx="40" cy="40" r="2" fill="#44dd66" opacity="0.6"/>
+  <circle cx="150" cy="35" r="2" fill="#44dd66" opacity="0.6"/>
+  <circle cx="30" cy="100" r="1.5" fill="#66eebb" opacity="0.5"/>
+  <circle cx="55" cy="140" r="1.5" fill="#44dd66" opacity="0.4"/>
+</svg>

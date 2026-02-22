@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Abstract Mech-Wolf Enemy - Red/Orange Neon -->
+  <defs>
+    <radialGradient id="e2glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff4400" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#330000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="e2body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6600"/>
+      <stop offset="50%" stop-color="#cc2200"/>
+      <stop offset="100%" stop-color="#880000"/>
+    </linearGradient>
+    <linearGradient id="e2metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#555555"/>
+      <stop offset="100%" stop-color="#222222"/>
+    </linearGradient>
+  </defs>
+  <!-- Glow -->
+  <circle cx="100" cy="100" r="90" fill="url(#e2glow)"/>
+  <!-- Mech body - angular torso -->
+  <polygon points="65,80 100,60 135,80 140,120 120,145 80,145 60,120" fill="url(#e2metal)" stroke="#ff4400" stroke-width="2"/>
+  <!-- Head - wolf-like angular -->
+  <polygon points="80,80 100,42 120,80 110,85 90,85" fill="url(#e2body)" stroke="#ff6600" stroke-width="1.5"/>
+  <!-- Snout -->
+  <polygon points="90,75 100,50 110,75 105,80 95,80" fill="#aa1500" stroke="#ff6600" stroke-width="1"/>
+  <!-- Ears - sharp angular -->
+  <polygon points="82,68 75,35 92,62" fill="#cc2200" stroke="#ff8800" stroke-width="1.5"/>
+  <polygon points="118,68 125,35 108,62" fill="#cc2200" stroke="#ff8800" stroke-width="1.5"/>
+  <!-- Eyes - menacing -->
+  <polygon points="88,68 94,64 96,70 90,72" fill="#ffaa00"/>
+  <circle cx="92" cy="68" r="2" fill="#ffffff"/>
+  <polygon points="112,68 106,64 104,70 110,72" fill="#ffaa00"/>
+  <circle cx="108" cy="68" r="2" fill="#ffffff"/>
+  <!-- Mech jaw lines -->
+  <line x1="90" y1="80" x2="85" y2="85" stroke="#ff4400" stroke-width="1.5"/>
+  <line x1="110" y1="80" x2="115" y2="85" stroke="#ff4400" stroke-width="1.5"/>
+  <!-- Front legs - mechanical -->
+  <polygon points="65,115 50,155 58,158 72,125" fill="url(#e2metal)" stroke="#ff4400" stroke-width="1.5"/>
+  <polygon points="135,115 150,155 142,158 128,125" fill="url(#e2metal)" stroke="#ff4400" stroke-width="1.5"/>
+  <!-- Rear legs -->
+  <polygon points="72,140 55,175 63,178 82,148" fill="url(#e2metal)" stroke="#ff4400" stroke-width="1.5"/>
+  <polygon points="128,140 145,175 137,178 118,148" fill="url(#e2metal)" stroke="#ff4400" stroke-width="1.5"/>
+  <!-- Paws - clawed -->
+  <polygon points="48,155 42,162 52,165 58,158" fill="#cc2200" stroke="#ff6600" stroke-width="1"/>
+  <polygon points="152,155 158,162 148,165 142,158" fill="#cc2200" stroke="#ff6600" stroke-width="1"/>
+  <polygon points="53,175 47,182 57,185 63,178" fill="#cc2200" stroke="#ff6600" stroke-width="1"/>
+  <polygon points="147,175 153,182 143,185 137,178" fill="#cc2200" stroke="#ff6600" stroke-width="1"/>
+  <!-- Tail - energy whip -->
+  <path d="M120,140 Q145,130 155,110 Q165,95 180,90" fill="none" stroke="#ff6600" stroke-width="3" stroke-linecap="round"/>
+  <path d="M120,140 Q145,130 155,110 Q165,95 180,90" fill="none" stroke="#ffaa00" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="180" cy="90" r="4" fill="#ffaa00" opacity="0.8"/>
+  <!-- Armor plates on body -->
+  <polygon points="75,95 100,88 90,105" fill="#444444" stroke="#ff4400" stroke-width="1" opacity="0.8"/>
+  <polygon points="125,95 100,88 110,105" fill="#444444" stroke="#ff4400" stroke-width="1" opacity="0.8"/>
+  <!-- Neon circuit lines -->
+  <line x1="70" y1="100" x2="60" y2="120" stroke="#ff8800" stroke-width="1" opacity="0.6"/>
+  <line x1="130" y1="100" x2="140" y2="120" stroke="#ff8800" stroke-width="1" opacity="0.6"/>
+  <line x1="85" y1="90" x2="85" y2="110" stroke="#ff4400" stroke-width="0.8" opacity="0.5"/>
+  <line x1="115" y1="90" x2="115" y2="110" stroke="#ff4400" stroke-width="0.8" opacity="0.5"/>
+  <!-- Energy sparks -->
+  <circle cx="40" cy="50" r="1.5" fill="#ffaa00" opacity="0.6"/>
+  <circle cx="160" cy="50" r="1.5" fill="#ffaa00" opacity="0.6"/>
+  <circle cx="30" cy="100" r="1" fill="#ff4400" opacity="0.5"/>
+  <circle cx="170" cy="100" r="1" fill="#ff4400" opacity="0.5"/>
+</svg>
