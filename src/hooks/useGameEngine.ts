@@ -9,7 +9,6 @@ import type {
 } from '../types';
 import { STAGES, ENEMY_NAMES } from '../data/stages';
 import { selectWord } from '../utils/wordSelector';
-import { isValidRomaji } from '../utils/romajiConverter';
 import {
   loadWordStats,
   saveWordStats,
@@ -25,6 +24,8 @@ import {
   playDamageSE,
   playGameOverSE,
   playLevelUpSE,
+  startBGM,
+  stopBGM,
 } from '../utils/sound';
 
 const INITIAL_TIME_LIMIT = 30;
@@ -65,8 +66,9 @@ function getTimeLimit(totalCorrect: number): number {
   return Math.max(MIN_TIME_LIMIT, INITIAL_TIME_LIMIT - reduction);
 }
 
-function calculateDamage(word: WordEntry): number {
-  const lengthBonus = Math.max(0, word.answer.length - 3) * 2;
+function calculateDamage(word: WordEntry, mode: GameMode | null): number {
+  const len = mode === 'hiragana' ? word.display.length : word.answer.length;
+  const lengthBonus = Math.max(0, len - 2) * 3;
   const levelBonus = (word.level - 1) * 3;
   return BASE_DAMAGE + lengthBonus + levelBonus;
 }
@@ -273,6 +275,7 @@ export function useGameEngine(): GameEngine {
     setEnemy(createEnemy(1));
     setRecentWordIds([]);
 
+    startBGM();
     setScene('ENEMY_APPEAR');
     setTimeout(() => {
       goToQuestion(m, 0, []);
@@ -286,7 +289,7 @@ export function useGameEngine(): GameEngine {
     stopTimer();
 
     const isCorrect = mode === 'hiragana'
-      ? isValidRomaji(currentWord.display, input)
+      ? input.trim() === currentWord.display
       : input.toLowerCase().trim() === currentWord.answer;
 
     if (!isCorrect) {
@@ -336,7 +339,7 @@ export function useGameEngine(): GameEngine {
 
     playCorrectSE();
 
-    const damage = calculateDamage(currentWord);
+    const damage = calculateDamage(currentWord, mode);
     const currentMode = mode;
 
     setPlayer(prev => {
@@ -425,6 +428,7 @@ export function useGameEngine(): GameEngine {
   // ── Return to title ──
   const returnToTitle = useCallback(() => {
     stopTimer();
+    stopBGM();
     updateGameRecord(sessionEnemiesDefeated, player.maxCombo, player.totalCorrect);
     setScene('TITLE');
     setInput('');
@@ -433,6 +437,7 @@ export function useGameEngine(): GameEngine {
   // ── Game over → result ──
   useEffect(() => {
     if (scene === 'GAME_OVER') {
+      stopBGM();
       const timeout = setTimeout(() => {
         updateGameRecord(sessionEnemiesDefeated, player.maxCombo, player.totalCorrect);
         setScene('RESULT');

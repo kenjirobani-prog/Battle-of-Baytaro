@@ -28,6 +28,7 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
     setInput,
     submitAnswer,
     activateSpecial,
+    returnToTitle,
   } = engine;
 
   // Space key for special
@@ -49,14 +50,19 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
       <StageBackground bgClass={stage.bgClass} />
 
       <div className="battle-content">
-        <HUD
-          timeRemaining={timeRemaining}
-          timeLimit={timeLimit}
-          totalCorrect={player.totalCorrect}
-          combo={player.combo}
-          enemiesDefeated={sessionEnemiesDefeated}
-          stageName={stage.name}
-        />
+        <div className="battle-top-bar">
+          <HUD
+            timeRemaining={timeRemaining}
+            timeLimit={timeLimit}
+            totalCorrect={player.totalCorrect}
+            combo={player.combo}
+            enemiesDefeated={sessionEnemiesDefeated}
+            stageName={stage.name}
+          />
+          <button className="btn-return-title" onClick={returnToTitle}>
+            タイトルに戻る
+          </button>
+        </div>
 
         <div className="battle-field">
           {/* Player side */}
