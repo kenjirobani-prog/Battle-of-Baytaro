@@ -1,188 +1,204 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220" width="260" height="220">
-  <!-- Hero - Minataro (湊太郎): Cool cyberpunk boy, no hat, spiky hair, with 2 plushie companions -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 240" width="300" height="240">
+  <!-- Hero - Minataro (湊太郎): Boy in green hoodie with seal and raccoon companions -->
   <defs>
-    <linearGradient id="hjacket" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#22ddff"/>
-      <stop offset="100%" stop-color="#0088cc"/>
+    <linearGradient id="hoodie" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5cd65c"/>
+      <stop offset="100%" stop-color="#3aaa3a"/>
     </linearGradient>
-    <linearGradient id="hjacket2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1a1a3e"/>
-      <stop offset="100%" stop-color="#0a0a2a"/>
+    <linearGradient id="hoodieDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3aaa3a"/>
+      <stop offset="100%" stop-color="#2d8a2d"/>
     </linearGradient>
-    <linearGradient id="hpants" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1a1a2e"/>
-      <stop offset="100%" stop-color="#111122"/>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe0c2"/>
+      <stop offset="100%" stop-color="#ffd1a8"/>
     </linearGradient>
-    <linearGradient id="hskin" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffddbb"/>
-      <stop offset="100%" stop-color="#ffcc99"/>
+    <linearGradient id="hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a3a"/>
+      <stop offset="100%" stop-color="#1a1a28"/>
     </linearGradient>
-    <linearGradient id="hhair" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1a1a3e"/>
-      <stop offset="100%" stop-color="#0a0a2a"/>
+    <linearGradient id="sealBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5f5ff"/>
+      <stop offset="100%" stop-color="#dde0f0"/>
     </linearGradient>
-    <linearGradient id="hglow" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    <linearGradient id="raccoonBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9a8a72"/>
+      <stop offset="100%" stop-color="#7a6a52"/>
     </linearGradient>
-    <linearGradient id="plush1" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffaa44"/>
-      <stop offset="100%" stop-color="#dd7722"/>
-    </linearGradient>
-    <linearGradient id="plush2" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#88bbff"/>
-      <stop offset="100%" stop-color="#5588dd"/>
+    <linearGradient id="raccoonTail" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9a8a72"/>
+      <stop offset="100%" stop-color="#6a5a42"/>
     </linearGradient>
   </defs>
 
-  <!-- === ENERGY AURA (behind character) === -->
-  <ellipse cx="130" cy="195" rx="60" ry="8" fill="#000000" opacity="0.2"/>
-  <circle cx="130" cy="110" r="70" fill="url(#hglow)" opacity="0.15"/>
+  <!-- === Shadow === -->
+  <ellipse cx="150" cy="218" rx="90" ry="8" fill="#000000" opacity="0.15"/>
 
-  <!-- === LEGS === -->
-  <rect x="112" y="160" width="14" height="32" rx="4" fill="url(#hpants)" stroke="#0a0a1a" stroke-width="1.5"/>
-  <rect x="132" y="160" width="14" height="32" rx="4" fill="url(#hpants)" stroke="#0a0a1a" stroke-width="1.5"/>
-  <!-- Boots (cyber style) -->
-  <path d="M108,188 Q110,196 119,198 Q126,200 128,196 L126,188 Z" fill="#1a1a3e" stroke="#00d4ff" stroke-width="1"/>
-  <path d="M130,188 Q132,196 139,198 Q146,200 148,196 L146,188 Z" fill="#1a1a3e" stroke="#00d4ff" stroke-width="1"/>
-  <line x1="112" y1="193" x2="124" y2="193" stroke="#00d4ff" stroke-width="1" opacity="0.7"/>
-  <line x1="134" y1="193" x2="144" y2="193" stroke="#00d4ff" stroke-width="1" opacity="0.7"/>
-
-  <!-- === BODY (Cyber jacket) === -->
-  <path d="M102,108 Q98,100 102,92 L106,86 Q118,78 138,78 Q152,78 156,86 L160,92 Q163,100 160,108 L162,158 Q145,166 130,166 Q115,166 98,158 Z" fill="url(#hjacket2)" stroke="#00d4ff" stroke-width="1.5"/>
-  <line x1="130" y1="86" x2="130" y2="162" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
-  <path d="M108,100 L152,100" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
-  <path d="M106,120 L154,120" stroke="#00d4ff" stroke-width="0.8" opacity="0.3"/>
-  <!-- Collar -->
-  <path d="M112,88 Q120,82 130,84 Q140,82 148,88" fill="none" stroke="#00d4ff" stroke-width="2"/>
-  <!-- Chest emblem -->
-  <polygon points="130,95 134,100 130,105 126,100" fill="#00d4ff" opacity="0.6"/>
-  <polygon points="130,97 132,100 130,103 128,100" fill="#ffffff" opacity="0.4"/>
-  <!-- Shoulder pads -->
-  <path d="M100,95 Q96,90 100,85 L108,88 L106,98 Z" fill="url(#hjacket2)" stroke="#00d4ff" stroke-width="1"/>
-  <path d="M160,95 Q164,90 160,85 L152,88 L154,98 Z" fill="url(#hjacket2)" stroke="#00d4ff" stroke-width="1"/>
-
-  <!-- === LEFT ARM === -->
-  <path d="M102,95 Q88,100 82,112 Q78,122 80,130" fill="none" stroke="url(#hjacket2)" stroke-width="14" stroke-linecap="round"/>
-  <path d="M102,95 Q88,100 82,112 Q78,122 80,130" fill="none" stroke="#00d4ff" stroke-width="1"/>
-  <circle cx="80" cy="133" r="7" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
-  <rect x="74" y="125" width="12" height="4" rx="2" fill="#1a1a3e" stroke="#00d4ff" stroke-width="0.8"/>
-
-  <!-- === RIGHT ARM === -->
-  <path d="M160,95 Q172,105 174,120 Q175,132 172,140" fill="none" stroke="url(#hjacket2)" stroke-width="14" stroke-linecap="round"/>
-  <path d="M160,95 Q172,105 174,120 Q175,132 172,140" fill="none" stroke="#00d4ff" stroke-width="1"/>
-  <circle cx="172" cy="143" r="7" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
-  <rect x="166" y="135" width="12" height="4" rx="2" fill="#1a1a3e" stroke="#00d4ff" stroke-width="0.8"/>
-
-  <!-- === HEAD === -->
-  <circle cx="130" cy="58" r="30" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
-
-  <!-- === HAIR (Spiky, dark with cyan highlights) === -->
-  <path d="M100,55 Q98,35 108,22 Q115,15 125,12 Q135,10 145,14 Q155,20 158,30 Q162,40 160,55 Q155,45 148,42 Q140,38 130,36 Q120,38 112,42 Q105,45 100,55 Z" fill="url(#hhair)" stroke="#0a0a2a" stroke-width="1"/>
-  <path d="M108,22 Q100,10 96,5" fill="none" stroke="url(#hhair)" stroke-width="6" stroke-linecap="round"/>
-  <path d="M120,15 Q115,2 118,-2" fill="none" stroke="url(#hhair)" stroke-width="5" stroke-linecap="round"/>
-  <path d="M135,13 Q138,-2 142,-4" fill="none" stroke="url(#hhair)" stroke-width="5" stroke-linecap="round"/>
-  <path d="M150,18 Q158,8 164,6" fill="none" stroke="url(#hhair)" stroke-width="5" stroke-linecap="round"/>
-  <path d="M155,28 Q165,18 170,16" fill="none" stroke="url(#hhair)" stroke-width="4" stroke-linecap="round"/>
-  <!-- Cyan highlights -->
-  <path d="M106,25 Q100,12 96,6" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.6" stroke-linecap="round"/>
-  <path d="M118,16 Q115,4 118,-1" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
-  <path d="M148,20 Q156,10 162,8" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.5" stroke-linecap="round"/>
-  <!-- Fringe -->
-  <path d="M108,46 Q112,38 118,42 Q122,36 128,40 Q132,34 138,40 Q142,36 148,42 Q152,38 155,46" fill="url(#hhair)" stroke="none"/>
-  <path d="M115,42 Q118,38 122,40" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.5"/>
-  <path d="M100,55 Q97,62 98,72" fill="#1a1a3e" stroke="none"/>
-  <path d="M160,55 Q163,62 162,72" fill="#1a1a3e" stroke="none"/>
-
-  <!-- === FACE === -->
-  <!-- Eyes (sharp, determined) -->
-  <path d="M116,52 L125,51 L125,64 L115,63 Z" fill="#ffffff" stroke="#222244" stroke-width="1.5"/>
-  <path d="M135,51 L144,52 L145,63 L135,64 Z" fill="#ffffff" stroke="#222244" stroke-width="1.5"/>
-  <ellipse cx="121" cy="58" rx="4" ry="5" fill="#00bbff"/>
-  <ellipse cx="139" cy="58" rx="4" ry="5" fill="#00bbff"/>
-  <circle cx="122" cy="57" r="2.2" fill="#0a0a3e"/>
-  <circle cx="140" cy="57" r="2.2" fill="#0a0a3e"/>
-  <circle cx="123" cy="55" r="2" fill="#ffffff"/>
-  <circle cx="141" cy="55" r="2" fill="#ffffff"/>
-  <circle cx="119" cy="60" r="1" fill="#ffffff" opacity="0.6"/>
-  <circle cx="137" cy="60" r="1" fill="#ffffff" opacity="0.6"/>
-  <!-- Eyebrows -->
-  <path d="M114,48 Q119,44 126,47" fill="none" stroke="#1a1a3e" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M134,47 Q141,44 146,48" fill="none" stroke="#1a1a3e" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Smirk -->
-  <path d="M120,70 Q126,76 130,76 Q134,76 140,70" fill="none" stroke="#333333" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M136,71 L138,74 L140,71" fill="#ffffff" stroke="none"/>
-  <!-- Nose -->
-  <path d="M129,64 L130,67 L131,64" fill="none" stroke="#dd9977" stroke-width="1.2"/>
-  <!-- Ears -->
-  <ellipse cx="100" cy="58" rx="4" ry="6" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
-  <ellipse cx="160" cy="58" rx="4" ry="6" fill="url(#hskin)" stroke="#cc9966" stroke-width="1.5"/>
-  <circle cx="99" cy="62" r="1.5" fill="#00d4ff"/>
-
-  <!-- === PLUSHIE 1 (Orange cat, left shoulder) === -->
-  <g transform="translate(62, 82)">
-    <ellipse cx="0" cy="8" rx="12" ry="14" fill="url(#plush1)" stroke="#aa5500" stroke-width="1.2"/>
-    <circle cx="0" cy="-8" r="11" fill="#ffbb55" stroke="#aa5500" stroke-width="1.2"/>
-    <polygon points="-9,-16 -6,-26 -2,-15" fill="#ffbb55" stroke="#aa5500" stroke-width="1"/>
-    <polygon points="9,-16 6,-26 2,-15" fill="#ffbb55" stroke="#aa5500" stroke-width="1"/>
-    <polygon points="-7,-17 -6,-23 -3,-16" fill="#ff8866" opacity="0.6"/>
-    <polygon points="7,-17 6,-23 3,-16" fill="#ff8866" opacity="0.6"/>
-    <circle cx="-4" cy="-9" r="3" fill="#111111"/>
-    <circle cx="4" cy="-9" r="3" fill="#111111"/>
-    <circle cx="-3" cy="-10" r="1.2" fill="#ffffff"/>
-    <circle cx="5" cy="-10" r="1.2" fill="#ffffff"/>
-    <ellipse cx="0" cy="-5" rx="1.5" ry="1" fill="#ff6644"/>
-    <path d="M-2,-4 Q0,-2 2,-4" fill="none" stroke="#aa5500" stroke-width="0.8"/>
-    <line x1="-5" y1="-6" x2="-14" y2="-8" stroke="#aa5500" stroke-width="0.6" opacity="0.5"/>
-    <line x1="-5" y1="-4" x2="-14" y2="-4" stroke="#aa5500" stroke-width="0.6" opacity="0.5"/>
-    <line x1="5" y1="-6" x2="14" y2="-8" stroke="#aa5500" stroke-width="0.6" opacity="0.5"/>
-    <line x1="5" y1="-4" x2="14" y2="-4" stroke="#aa5500" stroke-width="0.6" opacity="0.5"/>
-    <path d="M10,14 Q18,10 20,4 Q22,-2 18,-6" fill="none" stroke="#ffaa44" stroke-width="4" stroke-linecap="round"/>
-    <path d="M-10,2 L-16,6" stroke="#ffaa44" stroke-width="3" stroke-linecap="round"/>
-    <path d="M10,2 L16,6" stroke="#ffaa44" stroke-width="3" stroke-linecap="round"/>
-    <ellipse cx="-7" cy="-4" rx="3" ry="1.5" fill="#ff8888" opacity="0.4"/>
-    <ellipse cx="7" cy="-4" rx="3" ry="1.5" fill="#ff8888" opacity="0.4"/>
+  <!-- ========== SEAL (left side) ========== -->
+  <g transform="translate(42, 148)">
+    <!-- Body -->
+    <ellipse cx="0" cy="18" rx="22" ry="18" fill="url(#sealBody)" stroke="#c8cce0" stroke-width="1"/>
+    <!-- Head -->
+    <circle cx="0" cy="-2" r="18" fill="url(#sealBody)" stroke="#c8cce0" stroke-width="1"/>
+    <!-- Eyes -->
+    <circle cx="-6" cy="-4" r="3.5" fill="#1a1a2a"/>
+    <circle cx="6" cy="-4" r="3.5" fill="#1a1a2a"/>
+    <circle cx="-5" cy="-5.5" r="1.5" fill="#ffffff"/>
+    <circle cx="7" cy="-5.5" r="1.5" fill="#ffffff"/>
+    <!-- Nose -->
+    <ellipse cx="0" cy="2" rx="2.5" ry="1.8" fill="#333"/>
+    <!-- Mouth -->
+    <path d="M-3,4 Q0,7 3,4" fill="none" stroke="#555" stroke-width="0.8"/>
+    <!-- Whiskers -->
+    <line x1="-6" y1="1" x2="-16" y2="-1" stroke="#bbb" stroke-width="0.6"/>
+    <line x1="-6" y1="3" x2="-16" y2="4" stroke="#bbb" stroke-width="0.6"/>
+    <line x1="6" y1="1" x2="16" y2="-1" stroke="#bbb" stroke-width="0.6"/>
+    <line x1="6" y1="3" x2="16" y2="4" stroke="#bbb" stroke-width="0.6"/>
+    <!-- Flippers -->
+    <path d="M-18,10 Q-28,18 -20,28 Q-14,24 -14,14" fill="url(#sealBody)" stroke="#c8cce0" stroke-width="1"/>
+    <path d="M18,10 Q28,18 20,28 Q14,24 14,14" fill="url(#sealBody)" stroke="#c8cce0" stroke-width="1"/>
+    <!-- Tail -->
+    <path d="M-6,34 Q-12,42 -8,46 Q-2,40 0,36" fill="url(#sealBody)" stroke="#c8cce0" stroke-width="0.8"/>
+    <path d="M6,34 Q12,42 8,46 Q2,40 0,36" fill="url(#sealBody)" stroke="#c8cce0" stroke-width="0.8"/>
+    <!-- Cheeks -->
+    <ellipse cx="-10" cy="2" rx="4" ry="2.5" fill="#ffb8b8" opacity="0.35"/>
+    <ellipse cx="10" cy="2" rx="4" ry="2.5" fill="#ffb8b8" opacity="0.35"/>
   </g>
 
-  <!-- === PLUSHIE 2 (Blue bear, right side) === -->
-  <g transform="translate(196, 130)">
-    <ellipse cx="0" cy="8" rx="12" ry="14" fill="url(#plush2)" stroke="#3366aa" stroke-width="1.2"/>
-    <circle cx="0" cy="-8" r="11" fill="#99ccff" stroke="#3366aa" stroke-width="1.2"/>
-    <circle cx="-8" cy="-17" r="5" fill="#99ccff" stroke="#3366aa" stroke-width="1"/>
-    <circle cx="8" cy="-17" r="5" fill="#99ccff" stroke="#3366aa" stroke-width="1"/>
-    <circle cx="-8" cy="-17" r="3" fill="#bbddff" opacity="0.7"/>
-    <circle cx="8" cy="-17" r="3" fill="#bbddff" opacity="0.7"/>
-    <circle cx="-4" cy="-9" r="3" fill="#111111"/>
-    <circle cx="4" cy="-9" r="3" fill="#111111"/>
-    <circle cx="-3" cy="-10" r="1.2" fill="#ffffff"/>
-    <circle cx="5" cy="-10" r="1.2" fill="#ffffff"/>
-    <ellipse cx="0" cy="-5" rx="2" ry="1.5" fill="#4477bb"/>
-    <path d="M-2,-3 Q0,-1 2,-3" fill="none" stroke="#3366aa" stroke-width="0.8"/>
-    <polygon points="0,-15 1,-13 3,-13 1.5,-11.5 2,-9.5 0,-10.5 -2,-9.5 -1.5,-11.5 -3,-13 -1,-13" fill="#ffdd00" opacity="0.7"/>
-    <circle cx="10" cy="16" r="4" fill="#99ccff" stroke="#3366aa" stroke-width="0.8"/>
-    <path d="M-10,2 L-16,6" stroke="#88bbff" stroke-width="3" stroke-linecap="round"/>
-    <path d="M10,2 L16,6" stroke="#88bbff" stroke-width="3" stroke-linecap="round"/>
-    <ellipse cx="-7" cy="-4" rx="3" ry="1.5" fill="#ff8888" opacity="0.4"/>
-    <ellipse cx="7" cy="-4" rx="3" ry="1.5" fill="#ff8888" opacity="0.4"/>
+  <!-- ========== BOY CHARACTER (center) ========== -->
+  <g transform="translate(150, 0)">
+    <!-- === LEGS === -->
+    <rect x="-16" y="162" width="16" height="36" rx="4" fill="#2a2a3a" stroke="#1a1a28" stroke-width="1"/>
+    <rect x="2" y="162" width="16" height="36" rx="4" fill="#2a2a3a" stroke="#1a1a28" stroke-width="1"/>
+
+    <!-- Shoes -->
+    <path d="M-20,194 Q-18,204 -8,206 Q0,208 4,202 L2,194 Z" fill="#2288aa" stroke="#1a6688" stroke-width="1"/>
+    <path d="M-2,194 Q0,204 10,206 Q18,208 22,202 L20,194 Z" fill="#2288aa" stroke="#1a6688" stroke-width="1"/>
+    <!-- Shoe details -->
+    <line x1="-16" y1="200" x2="-2" y2="200" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <line x1="2" y1="200" x2="16" y2="200" stroke="#ffffff" stroke-width="1.5" opacity="0.4"/>
+    <!-- Sole -->
+    <path d="M-20,204 Q-8,210 4,204" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+    <path d="M-2,204 Q10,210 22,204" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+
+    <!-- === BODY (Green Hoodie) === -->
+    <path d="M-30,88 Q-34,80 -28,74 L-22,68 Q-10,60 8,60 Q26,60 32,68 L36,74 Q40,82 36,88 L38,160 Q22,168 0,168 Q-18,168 -32,160 Z" fill="url(#hoodie)" stroke="#2d8a2d" stroke-width="1.5"/>
+
+    <!-- Hoodie center line -->
+    <line x1="2" y1="74" x2="2" y2="164" stroke="#2d8a2d" stroke-width="1.5" opacity="0.5"/>
+    <!-- Hoodie pocket -->
+    <rect x="-18" y="124" width="40" height="18" rx="4" fill="url(#hoodieDark)" stroke="#2d8a2d" stroke-width="1" opacity="0.6"/>
+
+    <!-- Hood -->
+    <path d="M-22,68 Q-8,58 2,56 Q14,58 28,68" fill="none" stroke="#2d8a2d" stroke-width="2"/>
+    <!-- Hood string circles -->
+    <circle cx="-4" cy="78" r="2" fill="#2d8a2d"/>
+    <circle cx="8" cy="78" r="2" fill="#2d8a2d"/>
+    <!-- Hood strings -->
+    <line x1="-4" y1="80" x2="-6" y2="92" stroke="#2d8a2d" stroke-width="1.2"/>
+    <line x1="8" y1="80" x2="10" y2="92" stroke="#2d8a2d" stroke-width="1.2"/>
+
+    <!-- === LEFT ARM === -->
+    <path d="M-30,88 Q-42,96 -46,110 Q-48,122 -44,132" fill="none" stroke="url(#hoodie)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M-30,88 Q-42,96 -46,110 Q-48,122 -44,132" fill="none" stroke="#2d8a2d" stroke-width="1"/>
+    <!-- Hand -->
+    <circle cx="-44" cy="135" r="7" fill="url(#skin)" stroke="#ddb88a" stroke-width="1"/>
+
+    <!-- === RIGHT ARM === -->
+    <path d="M36,88 Q48,100 50,114 Q51,128 48,138" fill="none" stroke="url(#hoodie)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M36,88 Q48,100 50,114 Q51,128 48,138" fill="none" stroke="#2d8a2d" stroke-width="1"/>
+    <!-- Hand -->
+    <circle cx="48" cy="141" r="7" fill="url(#skin)" stroke="#ddb88a" stroke-width="1"/>
+
+    <!-- === HEAD === -->
+    <circle cx="2" cy="38" r="30" fill="url(#skin)" stroke="#ddb88a" stroke-width="1.5"/>
+
+    <!-- === HAIR (Black, messy/spiky) === -->
+    <path d="M-28,35 Q-30,15 -18,4 Q-10,-3 2,-6 Q14,-8 24,-2 Q34,4 36,16 Q38,28 36,38 Q30,26 22,22 Q14,18 2,16 Q-10,18 -18,22 Q-24,26 -28,35 Z" fill="url(#hair)" stroke="#1a1a28" stroke-width="1"/>
+    <!-- Spiky hair tips -->
+    <path d="M-18,4 Q-24,-6 -28,-10" fill="none" stroke="url(#hair)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M-6,-4 Q-8,-16 -4,-20" fill="none" stroke="url(#hair)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M10,-6 Q14,-18 18,-20" fill="none" stroke="url(#hair)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M24,-2 Q32,-10 38,-10" fill="none" stroke="url(#hair)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M32,10 Q40,2 44,2" fill="none" stroke="url(#hair)" stroke-width="4" stroke-linecap="round"/>
+    <!-- Fringe -->
+    <path d="M-20,28 Q-16,20 -10,24 Q-4,18 2,22 Q8,16 14,22 Q20,18 26,24 Q30,20 34,28" fill="url(#hair)" stroke="none"/>
+
+    <!-- === FACE === -->
+    <!-- Eyes (large, anime-style) -->
+    <ellipse cx="-10" cy="36" rx="7" ry="8" fill="#ffffff" stroke="#2a2a3a" stroke-width="1.5"/>
+    <ellipse cx="14" cy="36" rx="7" ry="8" fill="#ffffff" stroke="#2a2a3a" stroke-width="1.5"/>
+    <!-- Iris -->
+    <ellipse cx="-9" cy="37" rx="5" ry="6" fill="#4488cc"/>
+    <ellipse cx="15" cy="37" rx="5" ry="6" fill="#4488cc"/>
+    <!-- Pupil -->
+    <circle cx="-8" cy="37" r="2.8" fill="#1a1a3a"/>
+    <circle cx="16" cy="37" r="2.8" fill="#1a1a3a"/>
+    <!-- Eye highlights -->
+    <circle cx="-6" cy="34" r="2.2" fill="#ffffff"/>
+    <circle cx="18" cy="34" r="2.2" fill="#ffffff"/>
+    <circle cx="-11" cy="40" r="1" fill="#ffffff" opacity="0.6"/>
+    <circle cx="13" cy="40" r="1" fill="#ffffff" opacity="0.6"/>
+    <!-- Eyebrows -->
+    <path d="M-18,26 Q-12,22 -4,25" fill="none" stroke="#2a2a3a" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M8,25 Q16,22 22,26" fill="none" stroke="#2a2a3a" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- Nose -->
+    <path d="M1,44 L2,47 L3,44" fill="none" stroke="#ddb88a" stroke-width="1.2"/>
+    <!-- Mouth (confident smile) -->
+    <path d="M-6,52 Q0,58 2,58 Q4,58 10,52" fill="none" stroke="#444" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Cheeks -->
+    <ellipse cx="-16" cy="46" rx="4" ry="2.5" fill="#ffb8b8" opacity="0.3"/>
+    <ellipse cx="20" cy="46" rx="4" ry="2.5" fill="#ffb8b8" opacity="0.3"/>
+    <!-- Ears -->
+    <ellipse cx="-28" cy="38" rx="4" ry="6" fill="url(#skin)" stroke="#ddb88a" stroke-width="1"/>
+    <ellipse cx="32" cy="38" rx="4" ry="6" fill="url(#skin)" stroke="#ddb88a" stroke-width="1"/>
   </g>
 
-  <!-- === ENERGY SPARKLES === -->
-  <circle cx="70" cy="30" r="2" fill="#00d4ff" opacity="0.7">
-    <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="190" cy="25" r="2" fill="#00d4ff" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="1.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="55" cy="110" r="1.5" fill="#00ffaa" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="210" cy="100" r="1.5" fill="#00ffaa" opacity="0.4">
-    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="1.8s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="80" cy="170" r="1" fill="#00d4ff" opacity="0.5">
-    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="180" cy="175" r="1" fill="#00d4ff" opacity="0.4">
-    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.2s" repeatCount="indefinite"/>
-  </circle>
+  <!-- ========== RACCOON (right side) ========== -->
+  <g transform="translate(248, 136)">
+    <!-- Body -->
+    <ellipse cx="0" cy="24" rx="20" ry="22" fill="url(#raccoonBody)" stroke="#5a4a32" stroke-width="1"/>
+    <!-- Belly -->
+    <ellipse cx="0" cy="26" rx="12" ry="14" fill="#d4c8b0" stroke="none"/>
+    <!-- Head -->
+    <circle cx="0" cy="-2" r="18" fill="url(#raccoonBody)" stroke="#5a4a32" stroke-width="1"/>
+    <!-- Face mask (raccoon markings) -->
+    <path d="M-14,-6 Q-10,-12 0,-12 Q10,-12 14,-6 L12,2 Q6,6 0,6 Q-6,6 -12,2 Z" fill="#3a3028"/>
+    <!-- Eyes (white patches) -->
+    <ellipse cx="-7" cy="-4" rx="5" ry="4" fill="#e8e0d0"/>
+    <ellipse cx="7" cy="-4" rx="5" ry="4" fill="#e8e0d0"/>
+    <!-- Eye pupils -->
+    <circle cx="-6" cy="-3" r="2.5" fill="#1a1a2a"/>
+    <circle cx="8" cy="-3" r="2.5" fill="#1a1a2a"/>
+    <circle cx="-5" cy="-4" r="1" fill="#ffffff"/>
+    <circle cx="9" cy="-4" r="1" fill="#ffffff"/>
+    <!-- Nose -->
+    <ellipse cx="0" cy="2" rx="2.5" ry="2" fill="#222"/>
+    <!-- Mouth -->
+    <path d="M-2,4 Q0,6 2,4" fill="none" stroke="#444" stroke-width="0.8"/>
+    <!-- Ears -->
+    <path d="M-12,-16 Q-14,-26 -8,-22 Q-4,-18 -8,-14" fill="#9a8a72" stroke="#5a4a32" stroke-width="0.8"/>
+    <path d="M12,-16 Q14,-26 8,-22 Q4,-18 8,-14" fill="#9a8a72" stroke="#5a4a32" stroke-width="0.8"/>
+    <!-- Inner ears -->
+    <path d="M-11,-17 Q-12,-23 -9,-20" fill="#d4c8b0"/>
+    <path d="M11,-17 Q12,-23 9,-20" fill="#d4c8b0"/>
+    <!-- Arms/paws -->
+    <path d="M-16,14 L-22,20" stroke="#9a8a72" stroke-width="5" stroke-linecap="round"/>
+    <path d="M16,14 L22,20" stroke="#9a8a72" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="-23" cy="21" r="3.5" fill="#6a5a42"/>
+    <circle cx="23" cy="21" r="3.5" fill="#6a5a42"/>
+    <!-- Legs -->
+    <path d="M-10,42 L-10,50" stroke="#9a8a72" stroke-width="5" stroke-linecap="round"/>
+    <path d="M10,42 L10,50" stroke="#9a8a72" stroke-width="5" stroke-linecap="round"/>
+    <ellipse cx="-10" cy="52" rx="4" ry="2.5" fill="#6a5a42"/>
+    <ellipse cx="10" cy="52" rx="4" ry="2.5" fill="#6a5a42"/>
+    <!-- Tail (striped) -->
+    <path d="M14,36 Q30,30 32,18 Q34,8 28,0" fill="none" stroke="url(#raccoonTail)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M28,6 L32,6" stroke="#3a3028" stroke-width="8" stroke-linecap="butt" opacity="0.6"/>
+    <path d="M30,14 L34,14" stroke="#3a3028" stroke-width="8" stroke-linecap="butt" opacity="0.6"/>
+    <path d="M28,22 L32,22" stroke="#3a3028" stroke-width="8" stroke-linecap="butt" opacity="0.6"/>
+    <!-- Cheeks -->
+    <ellipse cx="-10" cy="2" rx="3" ry="2" fill="#ffb8b8" opacity="0.3"/>
+    <ellipse cx="10" cy="2" rx="3" ry="2" fill="#ffb8b8" opacity="0.3"/>
+  </g>
 </svg>
