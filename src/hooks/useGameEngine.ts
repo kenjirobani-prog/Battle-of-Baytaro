@@ -48,7 +48,7 @@ function createEnemy(level: number): EnemyData {
     name: ENEMY_NAMES[(level - 1) % ENEMY_NAMES.length],
     maxHp: ENEMY_BASE_HP + (level - 1) * ENEMY_HP_PER_LEVEL,
     currentHp: ENEMY_BASE_HP + (level - 1) * ENEMY_HP_PER_LEVEL,
-    svgIndex: ((level - 1) % 5) + 1,
+    svgIndex: ((level - 1) % ENEMY_NAMES.length) + 1,
   };
 }
 
