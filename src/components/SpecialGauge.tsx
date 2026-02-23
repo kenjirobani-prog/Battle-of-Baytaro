@@ -12,7 +12,7 @@ export const SpecialGauge: React.FC<SpecialGaugeProps> = ({ gauge, max, ready })
   return (
     <div className={`special-gauge-container ${ready ? 'special-ready' : ''}`}>
       <div className="special-gauge-label">
-        {ready ? '⚡ SPECIAL READY! [Space]' : `SP ${gauge}/${max}`}
+        {ready ? '⚡ SPECIAL READY! [Space]' : `SP ${'★'.repeat(gauge)}${'☆'.repeat(max - gauge)}`}
       </div>
       <div className="special-gauge-track">
         <div
