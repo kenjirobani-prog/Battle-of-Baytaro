@@ -2,8 +2,8 @@ import React from 'react';
 import type { SceneState } from '../types';
 import attackSvg from '../assets/attack.svg';
 import defeatSvg from '../assets/defeat.svg';
-import special1Svg from '../assets/special1.svg';
-import special2Svg from '../assets/special2.svg';
+import special1Png from '../assets/special1.png';
+import special2Png from '../assets/special2.png';
 
 interface EffectOverlayProps {
   scene: SceneState;
@@ -30,7 +30,7 @@ export const EffectOverlay: React.FC<EffectOverlayProps> = ({ scene, specialVari
   }
 
   if (scene === 'SPECIAL') {
-    const specialSrc = specialVariant === 1 ? special1Svg : special2Svg;
+    const specialSrc = specialVariant === 1 ? special1Png : special2Png;
     return (
       <div className="effect-overlay effect-special screen-shake">
         <img src={specialSrc} alt="" className="effect-img effect-special-img" />
