@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="s1bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffdd00" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#ff8800" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#ff3344" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ff0000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="s1glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="200" cy="200" r="180" fill="url(#s1bg)"/>
+  <!-- Lightning bolts -->
+  <g filter="url(#s1glow)">
+    <polygon points="200,20 180,160 220,150 160,380 240,180 200,190" fill="#ffdd00" opacity="0.9"/>
+    <polygon points="280,40 230,150 270,140 220,340 290,160 260,170" fill="#ffaa00" opacity="0.7"/>
+    <polygon points="120,60 170,160 130,150 180,320 110,170 140,180" fill="#ffcc00" opacity="0.7"/>
+  </g>
+  <!-- Central burst -->
+  <circle cx="200" cy="200" r="30" fill="#fff" opacity="0.9"/>
+  <circle cx="200" cy="200" r="50" fill="none" stroke="#ffdd00" stroke-width="3" opacity="0.6"/>
+  <circle cx="200" cy="200" r="80" fill="none" stroke="#ff8800" stroke-width="2" opacity="0.4"/>
+  <!-- Spark rays -->
+  <g stroke="#ffdd00" stroke-width="2" opacity="0.6">
+    <line x1="200" y1="200" x2="200" y2="30"/>
+    <line x1="200" y1="200" x2="320" y2="80"/>
+    <line x1="200" y1="200" x2="370" y2="200"/>
+    <line x1="200" y1="200" x2="320" y2="320"/>
+    <line x1="200" y1="200" x2="200" y2="370"/>
+    <line x1="200" y1="200" x2="80" y2="320"/>
+    <line x1="200" y1="200" x2="30" y2="200"/>
+    <line x1="200" y1="200" x2="80" y2="80"/>
+  </g>
+</svg>

@@ -6,6 +6,7 @@ import type {
   EnemyData,
   PlayerState,
   WordStats,
+  CollectedTop,
 } from '../types';
 import { STAGES, ENEMY_NAMES } from '../data/stages';
 import { selectWord } from '../utils/wordSelector';
@@ -39,7 +40,7 @@ const ENEMY_HP_PER_LEVEL = 15;
 const BASE_DAMAGE = 10;
 const TIMEOUT_DAMAGE = 15;
 const SPECIAL_DAMAGE = 50;
-const COMBO_FOR_SPECIAL = 10;
+const COMBO_FOR_SPECIAL = 3;
 
 function createEnemy(level: number): EnemyData {
   return {
@@ -85,6 +86,8 @@ export interface GameEngine {
   stage: typeof STAGES[0];
   recentWordIds: string[];
   sessionEnemiesDefeated: number;
+  collectedTops: CollectedTop[];
+  specialVariant: 1 | 2;
 
   setMode: (mode: GameMode) => void;
   startGame: () => void;
@@ -115,6 +118,9 @@ export function useGameEngine(): GameEngine {
   const [timeLimit, setTimeLimit] = useState(INITIAL_TIME_LIMIT);
   const [recentWordIds, setRecentWordIds] = useState<string[]>([]);
   const [sessionEnemiesDefeated, setSessionEnemiesDefeated] = useState(0);
+  const [collectedTops, setCollectedTops] = useState<CollectedTop[]>([]);
+  const [specialVariant, setSpecialVariant] = useState<1 | 2>(1);
+  const topIdRef = useRef(0);
 
   // Refs for values accessed in async callbacks (to avoid stale closures)
   const modeRef = useRef<GameMode | null>(null);
@@ -221,7 +227,11 @@ export function useGameEngine(): GameEngine {
   }, [startTimer, stopTimer]);
 
   // ── Transition helpers ──
-  const transitionAfterDefeat = useCallback((currentMode: GameMode) => {
+  const transitionAfterDefeat = useCallback((currentMode: GameMode, defeatedSvgIndex: number) => {
+    // Collect top from defeated enemy
+    topIdRef.current += 1;
+    setCollectedTops(prev => [...prev, { svgIndex: defeatedSvgIndex, id: topIdRef.current }]);
+
     setPlayer(p => {
       const newEnemiesDefeated = p.enemiesDefeated + 1;
       const newStage = getCurrentStage(newEnemiesDefeated);
@@ -272,6 +282,8 @@ export function useGameEngine(): GameEngine {
       currentStage: 1,
     });
     setSessionEnemiesDefeated(0);
+    setCollectedTops([]);
+    topIdRef.current = 0;
     setEnemy(createEnemy(1));
     setRecentWordIds([]);
 
@@ -365,7 +377,8 @@ export function useGameEngine(): GameEngine {
           playDefeatSE();
           setScene('DEFEAT');
           setSessionEnemiesDefeated(s => s + 1);
-          setTimeout(() => transitionAfterDefeat(currentMode), 1200);
+          const defeatedIdx = prev.svgIndex;
+          setTimeout(() => transitionAfterDefeat(currentMode, defeatedIdx), 1200);
         } else {
           setTimeout(() => {
             setPlayer(p => {
@@ -387,6 +400,8 @@ export function useGameEngine(): GameEngine {
 
     stopTimer();
     playSpecialSE();
+    // Randomly pick special variant 1 or 2
+    setSpecialVariant(Math.random() < 0.5 ? 1 : 2);
     setScene('SPECIAL');
 
     const currentMode = mode;
@@ -404,7 +419,8 @@ export function useGameEngine(): GameEngine {
           playDefeatSE();
           setScene('DEFEAT');
           setSessionEnemiesDefeated(s => s + 1);
-          setTimeout(() => transitionAfterDefeat(currentMode), 1200);
+          const defeatedIdx = prev.svgIndex;
+          setTimeout(() => transitionAfterDefeat(currentMode, defeatedIdx), 1200);
         } else {
           setTimeout(() => {
             setPlayer(p => {
@@ -458,6 +474,8 @@ export function useGameEngine(): GameEngine {
     stage,
     recentWordIds,
     sessionEnemiesDefeated,
+    collectedTops,
+    specialVariant,
     setMode,
     startGame,
     setInput,

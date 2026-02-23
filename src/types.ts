@@ -48,12 +48,17 @@ export interface StageData {
   requiredDefeats: number; // enemies defeated to unlock
 }
 
+export interface CollectedTop {
+  svgIndex: number;    // enemy type 1-5
+  id: number;          // unique id for key
+}
+
 export interface PlayerState {
   hp: number;
   maxHp: number;
   combo: number;
   maxCombo: number;
-  specialGauge: number;  // 0-10
+  specialGauge: number;  // 0-3
   specialReady: boolean;
   totalCorrect: number;
   enemiesDefeated: number;

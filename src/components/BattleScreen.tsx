@@ -7,6 +7,7 @@ import { EnemyCard } from './EnemyCard';
 import { InputArea } from './InputArea';
 import { SpecialGauge } from './SpecialGauge';
 import { EffectOverlay } from './EffectOverlay';
+import { CollectedTops } from './CollectedTops';
 import heroPng from '../assets/hero.png';
 
 interface BattleScreenProps {
@@ -25,6 +26,8 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
     timeLimit,
     stage,
     sessionEnemiesDefeated,
+    collectedTops,
+    specialVariant,
     setInput,
     submitAnswer,
     activateSpecial,
@@ -92,9 +95,12 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
         {/* Special gauge */}
         <SpecialGauge
           gauge={player.specialGauge}
-          max={10}
+          max={3}
           ready={player.specialReady}
         />
+
+        {/* Collected tops */}
+        <CollectedTops tops={collectedTops} />
 
         {/* Input area */}
         {mode && (
@@ -110,7 +116,7 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
       </div>
 
       {/* Effect overlays */}
-      <EffectOverlay scene={scene} />
+      <EffectOverlay scene={scene} specialVariant={specialVariant} />
 
       <div className="scanlines" />
     </div>
