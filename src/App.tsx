@@ -4,6 +4,7 @@ import { TitleScreen } from './components/TitleScreen';
 import { ModeSelect } from './components/ModeSelect';
 import { BattleScreen } from './components/BattleScreen';
 import { ResultScreen } from './components/ResultScreen';
+import { ClearScreen } from './components/ClearScreen';
 import type { GameMode } from './types';
 
 const App: React.FC = () => {
@@ -39,6 +40,16 @@ const App: React.FC = () => {
       <ModeSelect
         onSelect={handleModeSelect}
         onBack={handleBackToTitle}
+      />
+    );
+  }
+
+  if (engine.scene === 'GAME_CLEAR') {
+    return (
+      <ClearScreen
+        player={engine.player}
+        onRetry={handleRetry}
+        onTitle={handleBackToTitle}
       />
     );
   }

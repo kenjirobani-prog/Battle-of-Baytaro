@@ -452,12 +452,12 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 280px;
+  max-width: 360px;
 }
 
 .player-portrait {
-  width: 180px;
-  height: 180px;
+  width: 260px;
+  height: 260px;
   border: 2px solid var(--c-neon-green);
   border-radius: 8px;
   overflow: hidden;
@@ -504,8 +504,8 @@ html, body {
 }
 
 .enemy-portrait {
-  width: 180px;
-  height: 180px;
+  width: 260px;
+  height: 260px;
   border: 2px solid var(--c-neon-red);
   border-radius: 8px;
   overflow: hidden;
@@ -1051,14 +1051,15 @@ html, body {
   max-width: none;
   max-height: none;
   object-fit: cover;
-  animation: specialFullscreen 1s ease-out;
+  animation: specialFullscreen 1.5s ease-out;
 }
 
 @keyframes specialFullscreen {
   0% { transform: scale(0) rotate(0deg); opacity: 0; }
-  30% { transform: scale(1.3) rotate(180deg); opacity: 1; }
-  60% { transform: scale(1) rotate(360deg); opacity: 0.9; }
-  100% { transform: scale(1.1) rotate(360deg); opacity: 0.6; }
+  20% { transform: scale(1.3) rotate(180deg); opacity: 1; }
+  40% { transform: scale(1) rotate(360deg); opacity: 1; }
+  70% { transform: scale(1.05) rotate(360deg); opacity: 0.95; }
+  100% { transform: scale(1.1) rotate(360deg); opacity: 0.7; }
 }
 
 /* ══════════════════════════════
@@ -1128,11 +1129,12 @@ html, body {
 
 .hud-timer-fill {
   height: 100%;
+  width: 100%;
   background: linear-gradient(90deg, var(--c-neon-green), var(--c-neon-blue));
   border-radius: 9px;
-  transition: width 0.1s linear;
   box-shadow: 0 0 12px rgba(0, 212, 255, 0.5), inset 0 1px 0 rgba(255,255,255,0.3);
   position: relative;
+  transform-origin: left center;
 }
 
 .hud-timer-fill::after {
@@ -1173,4 +1175,115 @@ html, body {
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   z-index: 1;
+}
+
+/* ══════════════════════════════
+   GAME CLEAR SCREEN
+   ══════════════════════════════ */
+.clear-screen {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1a3a1a 0%, #0a1a0a 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.clear-bg-effect {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    var(--c-neon-yellow),
+    transparent,
+    var(--c-neon-green),
+    transparent,
+    var(--c-neon-blue),
+    transparent
+  );
+  opacity: 0.2;
+  animation: spin 6s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clear-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+  animation: clearFadeIn 1s ease-out;
+}
+
+@keyframes clearFadeIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.clear-title {
+  font-family: var(--font-en);
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg, var(--c-neon-yellow), #fff, var(--c-neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px var(--c-neon-yellow));
+  animation: clearTitlePulse 1.5s ease-in-out infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes clearTitlePulse {
+  0%, 100% { filter: drop-shadow(0 0 20px var(--c-neon-yellow)); }
+  50% { filter: drop-shadow(0 0 40px var(--c-neon-green)); }
+}
+
+.clear-image-container {
+  margin-bottom: 20px;
+}
+
+.clear-image {
+  max-width: 400px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid var(--c-neon-yellow);
+  box-shadow:
+    0 0 30px rgba(255, 221, 0, 0.4),
+    0 0 60px rgba(0, 255, 136, 0.2);
+  animation: clearImageFloat 3s ease-in-out infinite;
+}
+
+@keyframes clearImageFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+.clear-message {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--c-neon-yellow);
+  text-shadow: 0 0 10px var(--c-neon-yellow);
+  margin-bottom: 24px;
+}
+
+.clear-stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.clear-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
 }

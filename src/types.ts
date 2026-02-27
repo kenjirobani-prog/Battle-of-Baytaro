@@ -13,6 +13,7 @@ export type SceneState =
   | 'SPECIAL'
   | 'DAMAGE'
   | 'GAME_OVER'
+  | 'GAME_CLEAR'
   | 'RESULT';
 
 export interface WordEntry {
