@@ -1,6 +1,7 @@
 import type { WordEntry, WordStats, GameMode } from '../types';
 import { HIRAGANA_WORDS } from '../data/hiraganaWords';
 import { ENGLISH_WORDS } from '../data/englishWords';
+import { HOMEPOSITION_WORDS } from '../data/homepositionKeys';
 import { loadWordStats, getOrCreateWordStats } from './storage';
 
 /**
@@ -35,7 +36,9 @@ export function selectWord(
   totalCorrect: number,
   recentIds: string[]
 ): WordEntry {
-  const allWords = mode === 'hiragana' ? HIRAGANA_WORDS : ENGLISH_WORDS;
+  const allWords = mode === 'hiragana' ? HIRAGANA_WORDS
+    : mode === 'homeposition' ? HOMEPOSITION_WORDS
+    : ENGLISH_WORDS;
   const maxLevel = getMaxLevel(totalCorrect);
   const statsMap = loadWordStats(mode);
 

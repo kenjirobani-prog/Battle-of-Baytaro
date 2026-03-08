@@ -71,6 +71,10 @@ function getTimeLimit(totalCorrect: number): number {
 }
 
 function calculateDamage(word: WordEntry, mode: GameMode | null): number {
+  if (mode === 'homeposition') {
+    // Homeposition: base damage + level bonus (single keys do less, romaji does more)
+    return BASE_DAMAGE + (word.level - 1) * 4 + Math.max(0, word.answer.length - 1) * 3;
+  }
   const len = mode === 'hiragana' ? word.display.length : word.answer.length;
   const lengthBonus = Math.max(0, len - 2) * 3;
   const levelBonus = (word.level - 1) * 3;
@@ -320,6 +324,8 @@ export function useGameEngine(): GameEngine {
 
     const isCorrect = mode === 'hiragana'
       ? input.trim() === currentWord.display
+      : mode === 'homeposition'
+      ? input.toLowerCase().trim() === currentWord.answer
       : input.toLowerCase().trim() === currentWord.answer;
 
     if (!isCorrect) {

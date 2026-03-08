@@ -8,6 +8,7 @@ import { InputArea } from './InputArea';
 import { SpecialGauge } from './SpecialGauge';
 import { EffectOverlay } from './EffectOverlay';
 import { CollectedTops } from './CollectedTops';
+import { KeyboardGuide } from './KeyboardGuide';
 import heroPng from '../assets/hero.png';
 
 interface BattleScreenProps {
@@ -111,6 +112,13 @@ export const BattleScreen: React.FC<BattleScreenProps> = ({ engine }) => {
             onInputChange={setInput}
             onSubmit={submitAnswer}
             disabled={!isInputActive}
+          />
+        )}
+
+        {/* Keyboard guide for homeposition mode */}
+        {mode === 'homeposition' && currentWord && (
+          <KeyboardGuide
+            targetKeys={currentWord.answer.split('')}
           />
         )}
       </div>

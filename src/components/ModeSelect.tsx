@@ -13,6 +13,14 @@ export const ModeSelect: React.FC<ModeSelectProps> = ({ onSelect, onBack }) => {
         <h2 className="mode-title">モード選択</h2>
         <div className="mode-cards">
           <button
+            className="mode-card mode-card-homeposition"
+            onClick={() => onSelect('homeposition')}
+          >
+            <div className="mode-card-icon">⌨</div>
+            <div className="mode-card-label">ホームポジション</div>
+            <div className="mode-card-desc">キーボード練習＋ローマ字</div>
+          </button>
+          <button
             className="mode-card mode-card-hiragana"
             onClick={() => onSelect('hiragana')}
           >

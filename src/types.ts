@@ -1,6 +1,6 @@
 // ── Game Types ──
 
-export type GameMode = 'hiragana' | 'english';
+export type GameMode = 'hiragana' | 'english' | 'homeposition';
 
 export type SceneState =
   | 'TITLE'
