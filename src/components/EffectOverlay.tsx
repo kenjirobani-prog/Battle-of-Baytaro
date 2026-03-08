@@ -34,7 +34,6 @@ export const EffectOverlay: React.FC<EffectOverlayProps> = ({ scene, specialVari
     return (
       <div className="effect-overlay effect-special screen-shake">
         <img src={specialSrc} alt="" className="effect-img effect-special-img" />
-        <div className="effect-text effect-text-special">SPECIAL MOVE!</div>
         <div className="special-flash" />
       </div>
     );
