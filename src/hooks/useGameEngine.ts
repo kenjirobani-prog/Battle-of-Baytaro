@@ -27,6 +27,8 @@ import {
   playLevelUpSE,
   startBGM,
   stopBGM,
+  startClearBGM,
+  stopClearBGM,
 } from '../utils/sound';
 
 const INITIAL_TIME_LIMIT = 30;
@@ -37,6 +39,7 @@ const MIN_TIME_LIMIT = 10;
 const PLAYER_MAX_HP = 100;
 const ENEMY_BASE_HP = 30;
 const ENEMY_HP_PER_LEVEL = 15;
+const TOTAL_ENEMIES = 15;
 const BASE_DAMAGE = 10;
 const TIMEOUT_DAMAGE = 15;
 const SPECIAL_DAMAGE = 50;
@@ -234,6 +237,20 @@ export function useGameEngine(): GameEngine {
 
     setPlayer(p => {
       const newEnemiesDefeated = p.enemiesDefeated + 1;
+
+      // All 15 enemies defeated → GAME CLEAR!
+      if (newEnemiesDefeated >= TOTAL_ENEMIES) {
+        stopBGM();
+        setScene('GAME_CLEAR');
+        setTimeout(() => {
+          startClearBGM();
+        }, 500);
+        return {
+          ...p,
+          enemiesDefeated: newEnemiesDefeated,
+        };
+      }
+
       const newStage = getCurrentStage(newEnemiesDefeated);
       const stageChanged = newStage.id !== getCurrentStage(p.enemiesDefeated).id;
       const nextEnemy = createEnemy(newEnemiesDefeated + 1);
@@ -268,6 +285,7 @@ export function useGameEngine(): GameEngine {
     const m = modeRef.current;
     if (!m) return;
 
+    stopClearBGM();
     wordStatsRef.current = loadWordStats(m);
 
     setPlayer({
@@ -431,7 +449,7 @@ export function useGameEngine(): GameEngine {
         }
         return { ...prev, currentHp: newHp };
       });
-    }, 1000);
+    }, 1500);
   }, [player.specialReady, mode, stopTimer, goToQuestion, transitionAfterDefeat]);
 
   // ── Set mode ──
@@ -445,6 +463,7 @@ export function useGameEngine(): GameEngine {
   const returnToTitle = useCallback(() => {
     stopTimer();
     stopBGM();
+    stopClearBGM();
     updateGameRecord(sessionEnemiesDefeated, player.maxCombo, player.totalCorrect);
     setScene('TITLE');
     setInput('');

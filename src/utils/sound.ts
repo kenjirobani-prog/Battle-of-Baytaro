@@ -342,6 +342,138 @@ export function startBGM(): void {
   }, stepTime);
 }
 
+// ── Clear BGM (celebratory) ──
+let clearBgmNodes: { oscillators: OscillatorNode[]; gains: GainNode[]; masterGain: GainNode } | null = null;
+let clearBgmInterval: number | null = null;
+
+/**
+ * Celebratory victory BGM - upbeat, happy fanfare loop.
+ */
+export function startClearBGM(): void {
+  if (clearBgmNodes) return;
+  const ctx = getCtx();
+
+  const masterGain = ctx.createGain();
+  masterGain.gain.value = 0.15;
+  masterGain.connect(ctx.destination);
+
+  const oscillators: OscillatorNode[] = [];
+  const gains: GainNode[] = [];
+
+  // Bass (bouncy)
+  const bassOsc = ctx.createOscillator();
+  const bassGain = ctx.createGain();
+  bassOsc.type = 'sine';
+  bassOsc.frequency.value = 130;
+  bassGain.gain.value = 0.4;
+  bassOsc.connect(bassGain);
+  bassGain.connect(masterGain);
+  bassOsc.start();
+  oscillators.push(bassOsc);
+  gains.push(bassGain);
+
+  // Chords (bright)
+  const chordOsc = ctx.createOscillator();
+  const chordGain = ctx.createGain();
+  chordOsc.type = 'triangle';
+  chordOsc.frequency.value = 523;
+  chordGain.gain.value = 0.2;
+  chordOsc.connect(chordGain);
+  chordGain.connect(masterGain);
+  chordOsc.start();
+  oscillators.push(chordOsc);
+  gains.push(chordGain);
+
+  // Melody (celebratory)
+  const melodyOsc = ctx.createOscillator();
+  const melodyGain = ctx.createGain();
+  melodyOsc.type = 'sine';
+  melodyOsc.frequency.value = 659;
+  melodyGain.gain.value = 0.15;
+  melodyOsc.connect(melodyGain);
+  melodyGain.connect(masterGain);
+  melodyOsc.start();
+  oscillators.push(melodyOsc);
+  gains.push(melodyGain);
+
+  // High sparkle
+  const sparkleOsc = ctx.createOscillator();
+  const sparkleGain = ctx.createGain();
+  sparkleOsc.type = 'sine';
+  sparkleOsc.frequency.value = 1047;
+  sparkleGain.gain.value = 0.05;
+  sparkleOsc.connect(sparkleGain);
+  sparkleGain.connect(masterGain);
+  sparkleOsc.start();
+  oscillators.push(sparkleOsc);
+  gains.push(sparkleGain);
+
+  clearBgmNodes = { oscillators, gains, masterGain };
+
+  // C major / G major / Am / F - happy progression
+  const bassNotes = [130, 130, 164, 164, 110, 110, 87, 87]; // C, E, A, F
+  const chordNotes = [523, 659, 523, 659, 440, 523, 440, 523]; // C5, E5, A4, C5
+  const melodyNotes = [
+    784, 880, 1047, 880, 784, 880, 1047, 1175,
+    1047, 880, 784, 880, 1047, 880, 784, 659,
+  ];
+  const sparkleNotes = [
+    1568, 1760, 2093, 1760, 1568, 1760, 2093, 2349,
+    2093, 1760, 1568, 1760, 2093, 1760, 1568, 1318,
+  ];
+
+  let step = 0;
+  const bpm = 160;
+  const stepTime = (60 / bpm) * 1000 / 2;
+
+  clearBgmInterval = window.setInterval(() => {
+    if (!clearBgmNodes) return;
+    const ctx2 = getCtx();
+    const t = ctx2.currentTime;
+
+    const bassIdx = Math.floor(step / 4) % bassNotes.length;
+    bassOsc.frequency.setValueAtTime(bassNotes[bassIdx], t);
+
+    if (step % 4 === 0) {
+      bassGain.gain.setValueAtTime(0.4, t);
+      bassGain.gain.linearRampToValueAtTime(0.2, t + stepTime / 1000 * 3);
+    }
+
+    const chordIdx = Math.floor(step / 4) % chordNotes.length;
+    chordOsc.frequency.setValueAtTime(chordNotes[chordIdx], t);
+
+    if (step % 2 === 0) {
+      const melIdx = Math.floor(step / 2) % melodyNotes.length;
+      melodyOsc.frequency.setValueAtTime(melodyNotes[melIdx], t);
+      melodyGain.gain.setValueAtTime(0.18, t);
+      melodyGain.gain.linearRampToValueAtTime(0.08, t + stepTime / 1000);
+    }
+
+    const sparkIdx = step % sparkleNotes.length;
+    sparkleOsc.frequency.setValueAtTime(sparkleNotes[sparkIdx], t);
+    sparkleGain.gain.setValueAtTime(0.06, t);
+    sparkleGain.gain.linearRampToValueAtTime(0.02, t + stepTime / 1000 * 0.5);
+
+    step++;
+  }, stepTime);
+}
+
+export function stopClearBGM(): void {
+  if (clearBgmNodes) {
+    clearBgmNodes.masterGain.gain.linearRampToValueAtTime(0.001, getCtx().currentTime + 0.5);
+    const nodes = clearBgmNodes;
+    setTimeout(() => {
+      nodes.oscillators.forEach(o => { try { o.stop(); } catch {} });
+      nodes.masterGain.disconnect();
+    }, 600);
+    clearBgmNodes = null;
+  }
+  if (clearBgmInterval) {
+    clearInterval(clearBgmInterval);
+    clearBgmInterval = null;
+  }
+}
+
 export function stopBGM(): void {
   if (bgmNodes) {
     bgmNodes.masterGain.gain.linearRampToValueAtTime(0.001, getCtx().currentTime + 0.5);

@@ -35,7 +35,7 @@ export const HUD: React.FC<HUDProps> = ({
       <div className={`hud-timer-bar ${isUrgent ? 'timer-urgent' : ''}`}>
         <div
           className="hud-timer-fill"
-          style={{ width: `${timePct}%` }}
+          style={{ transform: `scaleX(${timePct / 100})` }}
         />
         <span className="hud-timer-text">
           {timeRemaining.toFixed(1)}s
