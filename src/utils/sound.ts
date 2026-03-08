@@ -211,61 +211,61 @@ let bgmNodes: { oscillators: OscillatorNode[]; gains: GainNode[]; masterGain: Ga
 let bgmInterval: number | null = null;
 
 /**
- * Cyberpunk action BGM - procedurally generated looping music.
- * Uses multiple oscillators for a driving, electronic feel.
+ * City Pop BGM - bright, funky, upbeat looping music.
+ * Major 7th chords, groovy bass, and shimmering melody.
  */
 export function startBGM(): void {
   if (bgmNodes) return; // already playing
   const ctx = getCtx();
 
   const masterGain = ctx.createGain();
-  masterGain.gain.value = 0.12;
+  masterGain.gain.value = 0.13;
   masterGain.connect(ctx.destination);
 
   const oscillators: OscillatorNode[] = [];
   const gains: GainNode[] = [];
 
-  // Bass line (driving pulse)
+  // Funky bass (sine for round tone)
   const bassOsc = ctx.createOscillator();
   const bassGain = ctx.createGain();
-  bassOsc.type = 'sawtooth';
-  bassOsc.frequency.value = 55; // A1
-  bassGain.gain.value = 0.5;
+  bassOsc.type = 'sine';
+  bassOsc.frequency.value = 130;
+  bassGain.gain.value = 0.45;
   bassOsc.connect(bassGain);
   bassGain.connect(masterGain);
   bassOsc.start();
   oscillators.push(bassOsc);
   gains.push(bassGain);
 
-  // Sub bass (sine for weight)
-  const subOsc = ctx.createOscillator();
-  const subGain = ctx.createGain();
-  subOsc.type = 'sine';
-  subOsc.frequency.value = 55;
-  subGain.gain.value = 0.4;
-  subOsc.connect(subGain);
-  subGain.connect(masterGain);
-  subOsc.start();
-  oscillators.push(subOsc);
-  gains.push(subGain);
+  // Chord pad 1 (triangle - warm)
+  const pad1Osc = ctx.createOscillator();
+  const pad1Gain = ctx.createGain();
+  pad1Osc.type = 'triangle';
+  pad1Osc.frequency.value = 330;
+  pad1Gain.gain.value = 0.12;
+  pad1Osc.connect(pad1Gain);
+  pad1Gain.connect(masterGain);
+  pad1Osc.start();
+  oscillators.push(pad1Osc);
+  gains.push(pad1Gain);
 
-  // Pad (atmospheric)
-  const padOsc = ctx.createOscillator();
-  const padGain = ctx.createGain();
-  padOsc.type = 'triangle';
-  padOsc.frequency.value = 220; // A3
-  padGain.gain.value = 0.15;
-  padOsc.connect(padGain);
-  padGain.connect(masterGain);
-  padOsc.start();
-  oscillators.push(padOsc);
-  gains.push(padGain);
+  // Chord pad 2 (sine - smooth)
+  const pad2Osc = ctx.createOscillator();
+  const pad2Gain = ctx.createGain();
+  pad2Osc.type = 'sine';
+  pad2Osc.frequency.value = 415;
+  pad2Gain.gain.value = 0.10;
+  pad2Osc.connect(pad2Gain);
+  pad2Gain.connect(masterGain);
+  pad2Osc.start();
+  oscillators.push(pad2Osc);
+  gains.push(pad2Gain);
 
-  // Lead synth (melody carrier)
+  // Lead melody (triangle - bright but soft)
   const leadOsc = ctx.createOscillator();
   const leadGain = ctx.createGain();
-  leadOsc.type = 'square';
-  leadOsc.frequency.value = 440;
+  leadOsc.type = 'triangle';
+  leadOsc.frequency.value = 660;
   leadGain.gain.value = 0.08;
   leadOsc.connect(leadGain);
   leadGain.connect(masterGain);
@@ -273,70 +273,102 @@ export function startBGM(): void {
   oscillators.push(leadOsc);
   gains.push(leadGain);
 
-  // Arpeggio synth
-  const arpOsc = ctx.createOscillator();
-  const arpGain = ctx.createGain();
-  arpOsc.type = 'sawtooth';
-  arpOsc.frequency.value = 330;
-  arpGain.gain.value = 0.06;
-  arpOsc.connect(arpGain);
-  arpGain.connect(masterGain);
-  arpOsc.start();
-  oscillators.push(arpOsc);
-  gains.push(arpGain);
+  // Hi shimmer (sine - sparkle)
+  const shimmerOsc = ctx.createOscillator();
+  const shimmerGain = ctx.createGain();
+  shimmerOsc.type = 'sine';
+  shimmerOsc.frequency.value = 1320;
+  shimmerGain.gain.value = 0.03;
+  shimmerOsc.connect(shimmerGain);
+  shimmerGain.connect(masterGain);
+  shimmerOsc.start();
+  oscillators.push(shimmerOsc);
+  gains.push(shimmerGain);
 
   bgmNodes = { oscillators, gains, masterGain };
 
-  // Sequence patterns - cyberpunk action feel
-  // A minor progression: Am - F - C - G (i - VI - III - VII)
-  const bassNotes = [55, 55, 44, 44, 52, 52, 49, 49]; // A1, F1, C2-ish, G1
-  const padNotes = [220, 220, 175, 175, 262, 262, 196, 196]; // A3, F3, C4, G3
-  const leadMelody = [
-    440, 523, 659, 523, 440, 392, 349, 392,
-    349, 440, 523, 440, 523, 659, 784, 659,
+  // City Pop progression: Cmaj7 - Am7 - Dm7 - G7 (IΔ7 - vim7 - iim7 - V7)
+  // Funky syncopated bass line
+  const bassNotes = [
+    130, 0, 130, 164, 146, 0, 146, 130,   // C groove
+    110, 0, 110, 130, 146, 0, 130, 110,   // Am groove
+    146, 0, 146, 164, 174, 0, 164, 146,   // Dm groove
+    196, 0, 196, 220, 246, 0, 220, 196,   // G7 groove
   ];
-  const arpNotes = [
-    220, 330, 440, 330, 175, 262, 349, 262,
-    262, 392, 523, 392, 196, 294, 392, 294,
+  // Maj7 chord voicings (root + 3rd + 5th + 7th)
+  const pad1Notes = [
+    330, 330, 330, 330, 330, 330, 330, 330,  // Cmaj7: E4
+    330, 330, 330, 330, 330, 330, 330, 330,  // Am7: E4
+    349, 349, 349, 349, 349, 349, 349, 349,  // Dm7: F4
+    392, 392, 392, 392, 392, 392, 392, 392,  // G7: G4
+  ];
+  const pad2Notes = [
+    494, 494, 494, 494, 494, 494, 494, 494,  // Cmaj7: B4
+    440, 440, 440, 440, 440, 440, 440, 440,  // Am7: A4
+    440, 440, 440, 440, 440, 440, 440, 440,  // Dm7: A4
+    494, 494, 494, 494, 494, 494, 494, 494,  // G7: B4
+  ];
+  // Bright pentatonic melody
+  const leadMelody = [
+    784, 880, 988, 880, 784, 660, 784, 880,
+    660, 784, 880, 784, 660, 523, 660, 784,
+    698, 784, 880, 784, 698, 587, 698, 784,
+    784, 880, 988, 1046, 988, 880, 784, 660,
+  ];
+  // Shimmer arpeggio
+  const shimmerNotes = [
+    1318, 1568, 1760, 1568, 1318, 1568, 1760, 1976,
+    1318, 1568, 1760, 1568, 1046, 1318, 1568, 1318,
+    1396, 1568, 1760, 1568, 1396, 1568, 1760, 1976,
+    1568, 1760, 1976, 2093, 1976, 1760, 1568, 1318,
   ];
 
   let step = 0;
-  const bpm = 140;
-  const stepTime = (60 / bpm) * 1000 / 2; // 16th notes
+  const bpm = 115; // relaxed city pop tempo
+  const stepTime = (60 / bpm) * 1000 / 2; // 8th notes
 
   bgmInterval = window.setInterval(() => {
     if (!bgmNodes) return;
     const ctx2 = getCtx();
     const t = ctx2.currentTime;
 
-    // Bass (changes every 4 steps)
-    const bassIdx = Math.floor(step / 4) % bassNotes.length;
-    bassOsc.frequency.setValueAtTime(bassNotes[bassIdx], t);
-    subOsc.frequency.setValueAtTime(bassNotes[bassIdx], t);
-
-    // Bass pulse effect (volume pumping)
-    if (step % 4 === 0) {
-      bassGain.gain.setValueAtTime(0.5, t);
-      bassGain.gain.linearRampToValueAtTime(0.25, t + stepTime / 1000 * 3);
+    // Bass (funky syncopated)
+    const bassIdx = step % bassNotes.length;
+    const bassNote = bassNotes[bassIdx];
+    if (bassNote === 0) {
+      bassGain.gain.setValueAtTime(0, t);
+    } else {
+      bassOsc.frequency.setValueAtTime(bassNote, t);
+      bassGain.gain.setValueAtTime(0.45, t);
+      bassGain.gain.linearRampToValueAtTime(0.2, t + stepTime / 1000 * 0.8);
     }
 
-    // Pad (changes every 8 steps)
-    const padIdx = Math.floor(step / 8) % padNotes.length;
-    padOsc.frequency.setValueAtTime(padNotes[padIdx], t);
+    // Chord pads (smooth changes)
+    const padIdx = step % pad1Notes.length;
+    pad1Osc.frequency.setValueAtTime(pad1Notes[padIdx], t);
+    pad2Osc.frequency.setValueAtTime(pad2Notes[padIdx], t);
 
-    // Lead melody (every 2 steps)
+    // Chord strum effect on chord changes (every 8 steps)
+    if (step % 8 === 0) {
+      pad1Gain.gain.setValueAtTime(0.15, t);
+      pad1Gain.gain.linearRampToValueAtTime(0.10, t + stepTime / 1000 * 4);
+      pad2Gain.gain.setValueAtTime(0.13, t);
+      pad2Gain.gain.linearRampToValueAtTime(0.08, t + stepTime / 1000 * 4);
+    }
+
+    // Lead melody (every 2 steps for a relaxed feel)
     if (step % 2 === 0) {
       const leadIdx = Math.floor(step / 2) % leadMelody.length;
       leadOsc.frequency.setValueAtTime(leadMelody[leadIdx], t);
-      leadGain.gain.setValueAtTime(0.1, t);
-      leadGain.gain.linearRampToValueAtTime(0.04, t + stepTime / 1000);
+      leadGain.gain.setValueAtTime(0.10, t);
+      leadGain.gain.linearRampToValueAtTime(0.04, t + stepTime / 1000 * 1.5);
     }
 
-    // Arpeggio (every step)
-    const arpIdx = step % arpNotes.length;
-    arpOsc.frequency.setValueAtTime(arpNotes[arpIdx], t);
-    arpGain.gain.setValueAtTime(0.08, t);
-    arpGain.gain.linearRampToValueAtTime(0.02, t + stepTime / 1000 * 0.8);
+    // Shimmer (every step, soft)
+    const shimIdx = step % shimmerNotes.length;
+    shimmerOsc.frequency.setValueAtTime(shimmerNotes[shimIdx], t);
+    shimmerGain.gain.setValueAtTime(0.04, t);
+    shimmerGain.gain.linearRampToValueAtTime(0.01, t + stepTime / 1000 * 0.6);
 
     step++;
   }, stepTime);
@@ -347,7 +379,7 @@ let clearBgmNodes: { oscillators: OscillatorNode[]; gains: GainNode[]; masterGai
 let clearBgmInterval: number | null = null;
 
 /**
- * Celebratory victory BGM - upbeat, happy fanfare loop.
+ * Celebratory City Pop victory BGM - bright, groovy, euphoric loop.
  */
 export function startClearBGM(): void {
   if (clearBgmNodes) return;
@@ -360,7 +392,7 @@ export function startClearBGM(): void {
   const oscillators: OscillatorNode[] = [];
   const gains: GainNode[] = [];
 
-  // Bass (bouncy)
+  // Bouncy bass (sine)
   const bassOsc = ctx.createOscillator();
   const bassGain = ctx.createGain();
   bassOsc.type = 'sine';
@@ -372,36 +404,36 @@ export function startClearBGM(): void {
   oscillators.push(bassOsc);
   gains.push(bassGain);
 
-  // Chords (bright)
+  // Chord pad (triangle - warm)
   const chordOsc = ctx.createOscillator();
   const chordGain = ctx.createGain();
   chordOsc.type = 'triangle';
   chordOsc.frequency.value = 523;
-  chordGain.gain.value = 0.2;
+  chordGain.gain.value = 0.15;
   chordOsc.connect(chordGain);
   chordGain.connect(masterGain);
   chordOsc.start();
   oscillators.push(chordOsc);
   gains.push(chordGain);
 
-  // Melody (celebratory)
+  // Melody (triangle - bright)
   const melodyOsc = ctx.createOscillator();
   const melodyGain = ctx.createGain();
-  melodyOsc.type = 'sine';
+  melodyOsc.type = 'triangle';
   melodyOsc.frequency.value = 659;
-  melodyGain.gain.value = 0.15;
+  melodyGain.gain.value = 0.12;
   melodyOsc.connect(melodyGain);
   melodyGain.connect(masterGain);
   melodyOsc.start();
   oscillators.push(melodyOsc);
   gains.push(melodyGain);
 
-  // High sparkle
+  // Sparkle (sine)
   const sparkleOsc = ctx.createOscillator();
   const sparkleGain = ctx.createGain();
   sparkleOsc.type = 'sine';
   sparkleOsc.frequency.value = 1047;
-  sparkleGain.gain.value = 0.05;
+  sparkleGain.gain.value = 0.04;
   sparkleOsc.connect(sparkleGain);
   sparkleGain.connect(masterGain);
   sparkleOsc.start();
@@ -410,20 +442,34 @@ export function startClearBGM(): void {
 
   clearBgmNodes = { oscillators, gains, masterGain };
 
-  // C major / G major / Am / F - happy progression
-  const bassNotes = [130, 130, 164, 164, 110, 110, 87, 87]; // C, E, A, F
-  const chordNotes = [523, 659, 523, 659, 440, 523, 440, 523]; // C5, E5, A4, C5
+  // City Pop victory: Fmaj7 - Em7 - Dm7 - Cmaj7 (bright descending)
+  const bassNotes = [
+    174, 0, 174, 196, 164, 0, 164, 174,  // Fmaj7 groove
+    146, 0, 146, 164, 130, 0, 130, 146,  // Em7 groove
+    146, 0, 146, 174, 196, 0, 174, 146,  // Dm7 groove
+    130, 0, 164, 196, 220, 0, 196, 164,  // Cmaj7 groove
+  ];
+  const chordNotes = [
+    440, 440, 440, 440, 523, 523, 523, 523,  // F: A4, C5
+    494, 494, 494, 494, 392, 392, 392, 392,  // Em: B4, G4
+    440, 440, 440, 440, 349, 349, 349, 349,  // Dm: A4, F4
+    494, 494, 494, 494, 523, 523, 523, 523,  // C: B4, C5
+  ];
   const melodyNotes = [
-    784, 880, 1047, 880, 784, 880, 1047, 1175,
-    1047, 880, 784, 880, 1047, 880, 784, 659,
+    880, 1046, 1175, 1046, 880, 784, 880, 1046,
+    784, 880, 1046, 880, 784, 659, 784, 880,
+    698, 880, 1046, 880, 698, 587, 698, 880,
+    784, 880, 1046, 1175, 1318, 1175, 1046, 880,
   ];
   const sparkleNotes = [
-    1568, 1760, 2093, 1760, 1568, 1760, 2093, 2349,
-    2093, 1760, 1568, 1760, 2093, 1760, 1568, 1318,
+    1760, 2093, 2349, 2093, 1760, 2093, 2349, 2637,
+    1568, 1760, 2093, 1760, 1568, 1318, 1568, 1760,
+    1396, 1760, 2093, 1760, 1396, 1175, 1396, 1760,
+    1568, 1760, 2093, 2349, 2637, 2349, 2093, 1760,
   ];
 
   let step = 0;
-  const bpm = 160;
+  const bpm = 125; // upbeat city pop
   const stepTime = (60 / bpm) * 1000 / 2;
 
   clearBgmInterval = window.setInterval(() => {
@@ -431,28 +477,38 @@ export function startClearBGM(): void {
     const ctx2 = getCtx();
     const t = ctx2.currentTime;
 
-    const bassIdx = Math.floor(step / 4) % bassNotes.length;
-    bassOsc.frequency.setValueAtTime(bassNotes[bassIdx], t);
-
-    if (step % 4 === 0) {
+    // Bass (syncopated groove)
+    const bassIdx = step % bassNotes.length;
+    const bassNote = bassNotes[bassIdx];
+    if (bassNote === 0) {
+      bassGain.gain.setValueAtTime(0, t);
+    } else {
+      bassOsc.frequency.setValueAtTime(bassNote, t);
       bassGain.gain.setValueAtTime(0.4, t);
-      bassGain.gain.linearRampToValueAtTime(0.2, t + stepTime / 1000 * 3);
+      bassGain.gain.linearRampToValueAtTime(0.18, t + stepTime / 1000 * 0.8);
     }
 
-    const chordIdx = Math.floor(step / 4) % chordNotes.length;
+    // Chord (smooth)
+    const chordIdx = step % chordNotes.length;
     chordOsc.frequency.setValueAtTime(chordNotes[chordIdx], t);
+    if (step % 8 === 0) {
+      chordGain.gain.setValueAtTime(0.18, t);
+      chordGain.gain.linearRampToValueAtTime(0.12, t + stepTime / 1000 * 4);
+    }
 
+    // Melody (every 2 steps)
     if (step % 2 === 0) {
       const melIdx = Math.floor(step / 2) % melodyNotes.length;
       melodyOsc.frequency.setValueAtTime(melodyNotes[melIdx], t);
-      melodyGain.gain.setValueAtTime(0.18, t);
-      melodyGain.gain.linearRampToValueAtTime(0.08, t + stepTime / 1000);
+      melodyGain.gain.setValueAtTime(0.14, t);
+      melodyGain.gain.linearRampToValueAtTime(0.06, t + stepTime / 1000 * 1.5);
     }
 
+    // Sparkle (every step)
     const sparkIdx = step % sparkleNotes.length;
     sparkleOsc.frequency.setValueAtTime(sparkleNotes[sparkIdx], t);
-    sparkleGain.gain.setValueAtTime(0.06, t);
-    sparkleGain.gain.linearRampToValueAtTime(0.02, t + stepTime / 1000 * 0.5);
+    sparkleGain.gain.setValueAtTime(0.05, t);
+    sparkleGain.gain.linearRampToValueAtTime(0.01, t + stepTime / 1000 * 0.5);
 
     step++;
   }, stepTime);
